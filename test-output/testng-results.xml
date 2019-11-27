@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="1" total="5" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="17008" started-at="2019-11-27T00:12:08Z" finished-at="2019-11-27T00:12:25Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="17008" started-at="2019-11-27T00:12:08Z" finished-at="2019-11-27T00:12:25Z">
+      <class name="testCases.test1">
+        <test-method status="PASS" signature="proba()[pri:0, instance:testCases.test1@343f4d3d]" name="proba" is-config="true" duration-ms="12752" started-at="2019-11-27T00:12:08Z" finished-at="2019-11-27T00:12:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- proba -->
+        <test-method status="PASS" signature="loginNegativniTestovi(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCases.test1@343f4d3d]" name="loginNegativniTestovi" duration-ms="1009" started-at="2019-11-27T00:12:21Z" data-provider="data-provider" finished-at="2019-11-27T00:12:22Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Email nije validnog formata!]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginNegativniTestovi -->
+        <test-method status="PASS" signature="loginNegativniTestovi(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCases.test1@343f4d3d]" name="loginNegativniTestovi" duration-ms="662" started-at="2019-11-27T00:12:22Z" data-provider="data-provider" finished-at="2019-11-27T00:12:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Lozinka nije validnog formata (Mora biti bar jedno veliko slovo, veliko malo slovo i broj i minimalne duzine 6)!]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginNegativniTestovi -->
+        <test-method status="PASS" signature="loginNegativniTestovi(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCases.test1@343f4d3d]" name="loginNegativniTestovi" duration-ms="879" started-at="2019-11-27T00:12:23Z" data-provider="data-provider" finished-at="2019-11-27T00:12:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[nesto@nesto.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Bar5slova]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Pogresan email ili lozinka!]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginNegativniTestovi -->
+        <test-method status="PASS" signature="loginNegativniTestovi(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCases.test1@343f4d3d]" name="loginNegativniTestovi" duration-ms="799" started-at="2019-11-27T00:12:23Z" data-provider="data-provider" finished-at="2019-11-27T00:12:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[sad23A2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Pogresan email ili lozinka!]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginNegativniTestovi -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:testCases.test1@343f4d3d]" name="tearDown" is-config="true" duration-ms="864" started-at="2019-11-27T00:12:24Z" finished-at="2019-11-27T00:12:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- testCases.test1 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
