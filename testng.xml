@@ -12,6 +12,14 @@
 
     <classes>
       <class name="testCases.test1"/>
+     <class name="testCases.test1"/>
+    </classes>
+  </test> <!-- Test -->
+    <test thread-count="5" name="DodavanjeZgradaTest">
+
+    <classes>
+     
+     <class name="testCases.DodavanjeZgradaTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -53,7 +53,6 @@ public class test1 extends BaseClass{
         return new Object[][] { 
         	{ "","","Email nije validnog formata!" }, 
         	{ "admin@gmail.com","","Lozinka nije validnog formata (Mora biti bar jedno veliko slovo, veliko malo slovo i broj i minimalne duzine 6)!" },
-        	
         	{"nesto@nesto.com","Bar5slova","Pogresan email ili lozinka!"},
         	{"admin@gmail.com","sad23A2","Pogresan email ili lozinka!"}
         	

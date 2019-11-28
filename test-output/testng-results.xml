@@ -1,105 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="1" total="5" passed="4">
+<testng-results skipped="0" failed="0" ignored="1" total="6" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="17008" started-at="2019-11-27T00:12:08Z" finished-at="2019-11-27T00:12:25Z">
+  <suite name="Default suite" duration-ms="18819" started-at="2019-11-28T15:25:50Z" finished-at="2019-11-28T15:26:08Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="17008" started-at="2019-11-27T00:12:08Z" finished-at="2019-11-27T00:12:25Z">
-      <class name="testCases.test1">
-        <test-method status="PASS" signature="proba()[pri:0, instance:testCases.test1@343f4d3d]" name="proba" is-config="true" duration-ms="12752" started-at="2019-11-27T00:12:08Z" finished-at="2019-11-27T00:12:21Z">
+    <test name="Default test" duration-ms="18819" started-at="2019-11-28T15:25:50Z" finished-at="2019-11-28T15:26:08Z">
+      <class name="testCases.RegistracijaStanaraTest">
+        <test-method status="PASS" signature="SetUp()[pri:0, instance:testCases.RegistracijaStanaraTest@42e26948]" name="SetUp" is-config="true" duration-ms="13581" started-at="2019-11-28T15:25:50Z" finished-at="2019-11-28T15:26:03Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- proba -->
-        <test-method status="PASS" signature="loginNegativniTestovi(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCases.test1@343f4d3d]" name="loginNegativniTestovi" duration-ms="1009" started-at="2019-11-27T00:12:21Z" data-provider="data-provider" finished-at="2019-11-27T00:12:22Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Email nije validnog formata!]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- SetUp -->
+        <test-method status="PASS" signature="PozitivanTestResetDugme()[pri:0, instance:testCases.RegistracijaStanaraTest@42e26948]" name="PozitivanTestResetDugme" duration-ms="1376" started-at="2019-11-28T15:26:03Z" finished-at="2019-11-28T15:26:05Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginNegativniTestovi -->
-        <test-method status="PASS" signature="loginNegativniTestovi(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCases.test1@343f4d3d]" name="loginNegativniTestovi" duration-ms="662" started-at="2019-11-27T00:12:22Z" data-provider="data-provider" finished-at="2019-11-27T00:12:23Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[admin@gmail.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Lozinka nije validnog formata (Mora biti bar jedno veliko slovo, veliko malo slovo i broj i minimalne duzine 6)!]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- PozitivanTestResetDugme -->
+        <test-method status="PASS" signature="registracijaStanaraNegativni1()[pri:0, instance:testCases.RegistracijaStanaraTest@42e26948]" name="registracijaStanaraNegativni1" duration-ms="778" started-at="2019-11-28T15:26:05Z" finished-at="2019-11-28T15:26:05Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginNegativniTestovi -->
-        <test-method status="PASS" signature="loginNegativniTestovi(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCases.test1@343f4d3d]" name="loginNegativniTestovi" duration-ms="879" started-at="2019-11-27T00:12:23Z" data-provider="data-provider" finished-at="2019-11-27T00:12:23Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[nesto@nesto.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Bar5slova]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Pogresan email ili lozinka!]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- registracijaStanaraNegativni1 -->
+        <test-method status="PASS" signature="registracijaStanaraNegativni2()[pri:0, instance:testCases.RegistracijaStanaraTest@42e26948]" name="registracijaStanaraNegativni2" duration-ms="789" started-at="2019-11-28T15:26:05Z" finished-at="2019-11-28T15:26:06Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginNegativniTestovi -->
-        <test-method status="PASS" signature="loginNegativniTestovi(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testCases.test1@343f4d3d]" name="loginNegativniTestovi" duration-ms="799" started-at="2019-11-27T00:12:23Z" data-provider="data-provider" finished-at="2019-11-27T00:12:24Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[admin@gmail.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[sad23A2]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Pogresan email ili lozinka!]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- registracijaStanaraNegativni2 -->
+        <test-method status="PASS" signature="registracijaStanaraNegativni3()[pri:0, instance:testCases.RegistracijaStanaraTest@42e26948]" name="registracijaStanaraNegativni3" duration-ms="526" started-at="2019-11-28T15:26:06Z" finished-at="2019-11-28T15:26:07Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginNegativniTestovi -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:testCases.test1@343f4d3d]" name="tearDown" is-config="true" duration-ms="864" started-at="2019-11-27T00:12:24Z" finished-at="2019-11-27T00:12:25Z">
+        </test-method> <!-- registracijaStanaraNegativni3 -->
+        <test-method status="PASS" signature="registracijaStanaraPos2()[pri:0, instance:testCases.RegistracijaStanaraTest@42e26948]" name="registracijaStanaraPos2" duration-ms="1498" started-at="2019-11-28T15:26:07Z" finished-at="2019-11-28T15:26:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registracijaStanaraPos2 -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:testCases.RegistracijaStanaraTest@42e26948]" name="tearDown" is-config="true" duration-ms="233" started-at="2019-11-28T15:26:08Z" finished-at="2019-11-28T15:26:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- testCases.test1 -->
+      </class> <!-- testCases.RegistracijaStanaraTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

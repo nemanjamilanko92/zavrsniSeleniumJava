@@ -14,7 +14,7 @@ public class AdminPocetnaPageObj {
 	
 	public  AdminPocetnaPageObj(WebDriver driver) {
 		this.driver=driver;
-		wait = new WebDriverWait(driver,20);
+		wait = new WebDriverWait(driver,5);
 		PageFactory.initElements(driver, this);
 	
 	}

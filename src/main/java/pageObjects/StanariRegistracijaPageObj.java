@@ -1,5 +1,6 @@
 package pageObjects;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -8,11 +9,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Stanari {
+public class StanariRegistracijaPageObj {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
-	public Stanari(WebDriver driver) {
+	public StanariRegistracijaPageObj(WebDriver driver) {
 		this.driver = driver;
 		wait = new WebDriverWait(driver, 20);
 		PageFactory.initElements(driver, this);
@@ -80,7 +81,7 @@ public class Stanari {
 	 
 	 @FindBy(xpath  = "//button[contains(text(),'Registrujte')]")
 	    @CacheLookup
-	    private WebElement registrujte;
+	    public WebElement registrujte;
 	 
 	 public  WebElement Registrujte() {
 		  return wait.until(ExpectedConditions.elementToBeClickable(registrujte));
@@ -119,5 +120,68 @@ public class Stanari {
 		public  WebElement prezimeErrorMsg() {
 			  return wait.until(ExpectedConditions.visibilityOf(prezimeErrorMsg));
 		}
-	 
+		
+		public void regStanara(String email,String lozinka,String ime,String prezime) {
+			
+			this.Email().clear();
+			this.Lozinka().clear();
+			this.Ime().clear();
+			this.Prezime().clear();
+			this.Email().sendKeys(email);
+			this.Lozinka().sendKeys(lozinka);
+			this.Ime().sendKeys(ime);
+			this.Prezime().sendKeys(prezime);
+			this.Prezime().sendKeys(Keys.TAB); //ovaj korak je potreban kako bi se izazvala poruka na input polju broj stanova
+	    	boolean isEnabled = registrujte.isEnabled();
+	    	if(isEnabled=true){
+	    		this.registrujte.click();
+	    	}else{
+	    		System.out.println("Na dugme ne moze da se klikne!");
+	    	}
+			
+		}
+		
+		public void unosenjeVrednostiStanara(String email,String lozinka,String ime,String prezime) {
+			
+			this.Email().clear();
+			this.Lozinka().clear();
+			this.Ime().clear();
+			this.Prezime().clear();
+			this.Email().sendKeys(email);
+			this.Lozinka().sendKeys(lozinka);
+			this.Ime().sendKeys(ime);
+			this.Prezime().sendKeys(prezime);			
+		}
+		
+		 @FindBy(xpath = "//*[@id=\"toast-container\"]/div/div")
+		 @CacheLookup
+		 private WebElement uspesnoRegStanar;
+		 
+			public  WebElement UspesnoRegStanarMsg() {
+				  return wait.until(ExpectedConditions.visibilityOf(uspesnoRegStanar));
+			}
+			public  String getUspesnoRegStanarMsg() {
+				  
+				return UspesnoRegStanarMsg().getText().trim();
+			}
+			
+		public String getEmailInputValue(){
+		    	String vrednost = this.Email().getAttribute("value");
+		    	return vrednost;
+		    }
+		    
+		public String getLozinkaInputValue(){
+		    	String vrednost = this.Lozinka().getAttribute("value");
+		    	return vrednost;
+		    }
+		    
+		public String getImeInputValue(){
+		    	String vrednost = this.Ime().getAttribute("value");
+		    	return vrednost;
+		    }
+		    
+		public String getPrezimeInputValue(){
+		    	String vrednost = this.Prezime().getAttribute("value");
+		    	return vrednost;
+		    }
 }
