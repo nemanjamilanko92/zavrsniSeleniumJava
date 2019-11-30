@@ -33,7 +33,7 @@ public class BaseClass {
 			System.out.println("NaN");
 		}
 		
-		//driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 		return driver;
 		
 	 }

@@ -20,7 +20,7 @@ public class AdminPocetnaPageObj {
 	}
 	
 	@FindBy(xpath = "//a[contains(text(),'Pocetna')]")
-	@CacheLookup
+	
 	private WebElement pocetnaNav;
 	
 	public WebElement Pocetna() {
@@ -28,7 +28,7 @@ public class AdminPocetnaPageObj {
 	}
 	
 	@FindBy(xpath = "//a[@class='nav-link'][contains(text(),'Zgrade')]")
-	@CacheLookup
+	
 	private WebElement zgradeNav;
 	
 	public WebElement Zgrade() {
@@ -36,7 +36,7 @@ public class AdminPocetnaPageObj {
 	}
 	
 	@FindBy(xpath = "//a[@class='nav-link'][contains(text(),'Stanari')]")
-	@CacheLookup
+	
 	private WebElement stanariNav;
 	
 	public WebElement Stanari() {
@@ -44,7 +44,7 @@ public class AdminPocetnaPageObj {
 	}
 	
 	@FindBy(xpath = "//a[@class='nav-link'][contains(text(),'Institucije')]")
-	@CacheLookup
+	
 	private WebElement institucijeNav;
 	
 	public WebElement Institucije() {
@@ -52,7 +52,7 @@ public class AdminPocetnaPageObj {
 	}
 	
 	@FindBy(xpath = "//a[@class='nav-link'][contains(text(),'Firme')]")
-	@CacheLookup
+	
 	private WebElement firmeNav;
 	
 	public WebElement Firme() {
@@ -60,7 +60,7 @@ public class AdminPocetnaPageObj {
 	}
 	
 	@FindBy(xpath = "//button[@class='btn btn-secondary']")
-	@CacheLookup
+	
 	private WebElement logOutBtn;
 	
 	public WebElement LogOutBtn() {
@@ -68,7 +68,7 @@ public class AdminPocetnaPageObj {
 	}
 	
 	@FindBy(xpath = "//ul[@id='opcije']//a[contains(text(),'Zgrade')]")
-	@CacheLookup
+	
 	private WebElement zgradeLink;
 	
 	public WebElement ZgradeLink() {
@@ -76,7 +76,7 @@ public class AdminPocetnaPageObj {
 	}
 	
 	@FindBy(xpath = "//ul[@id='opcije']//a[contains(text(),'Stanari')]")
-	@CacheLookup
+	
 	private WebElement stanariLink;
 	
 	public WebElement StanariLink() {
@@ -84,7 +84,7 @@ public class AdminPocetnaPageObj {
 	}
 
 	@FindBy(xpath = "//label[@class='nav-link active']")
-	@CacheLookup
+	
 	private WebElement adminEmail;
 	
 	public WebElement AdminEmail() {

@@ -1,41 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="1" total="6" passed="5">
+<testng-results skipped="0" failed="0" ignored="5" total="6" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="18819" started-at="2019-11-28T15:25:50Z" finished-at="2019-11-28T15:26:08Z">
+  <suite name="Default suite" duration-ms="17583" started-at="2019-11-30T16:54:16Z" finished-at="2019-11-30T16:54:34Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="18819" started-at="2019-11-28T15:25:50Z" finished-at="2019-11-28T15:26:08Z">
-      <class name="testCases.RegistracijaStanaraTest">
-        <test-method status="PASS" signature="SetUp()[pri:0, instance:testCases.RegistracijaStanaraTest@42e26948]" name="SetUp" is-config="true" duration-ms="13581" started-at="2019-11-28T15:25:50Z" finished-at="2019-11-28T15:26:03Z">
+    <test name="Default test" duration-ms="17583" started-at="2019-11-30T16:54:16Z" finished-at="2019-11-30T16:54:34Z">
+      <class name="testCases.KvaroviTest">
+        <test-method status="PASS" signature="SetUp()[pri:0, instance:testCases.KvaroviTest@5442a311]" name="SetUp" is-config="true" duration-ms="16159" started-at="2019-11-30T16:54:16Z" finished-at="2019-11-30T16:54:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SetUp -->
-        <test-method status="PASS" signature="PozitivanTestResetDugme()[pri:0, instance:testCases.RegistracijaStanaraTest@42e26948]" name="PozitivanTestResetDugme" duration-ms="1376" started-at="2019-11-28T15:26:03Z" finished-at="2019-11-28T15:26:05Z">
+        <test-method status="PASS" signature="obrisiKvar()[pri:0, instance:testCases.KvaroviTest@5442a311]" name="obrisiKvar" duration-ms="504" started-at="2019-11-30T16:54:33Z" finished-at="2019-11-30T16:54:33Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- PozitivanTestResetDugme -->
-        <test-method status="PASS" signature="registracijaStanaraNegativni1()[pri:0, instance:testCases.RegistracijaStanaraTest@42e26948]" name="registracijaStanaraNegativni1" duration-ms="778" started-at="2019-11-28T15:26:05Z" finished-at="2019-11-28T15:26:05Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- registracijaStanaraNegativni1 -->
-        <test-method status="PASS" signature="registracijaStanaraNegativni2()[pri:0, instance:testCases.RegistracijaStanaraTest@42e26948]" name="registracijaStanaraNegativni2" duration-ms="789" started-at="2019-11-28T15:26:05Z" finished-at="2019-11-28T15:26:06Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- registracijaStanaraNegativni2 -->
-        <test-method status="PASS" signature="registracijaStanaraNegativni3()[pri:0, instance:testCases.RegistracijaStanaraTest@42e26948]" name="registracijaStanaraNegativni3" duration-ms="526" started-at="2019-11-28T15:26:06Z" finished-at="2019-11-28T15:26:07Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- registracijaStanaraNegativni3 -->
-        <test-method status="PASS" signature="registracijaStanaraPos2()[pri:0, instance:testCases.RegistracijaStanaraTest@42e26948]" name="registracijaStanaraPos2" duration-ms="1498" started-at="2019-11-28T15:26:07Z" finished-at="2019-11-28T15:26:08Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- registracijaStanaraPos2 -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:testCases.RegistracijaStanaraTest@42e26948]" name="tearDown" is-config="true" duration-ms="233" started-at="2019-11-28T15:26:08Z" finished-at="2019-11-28T15:26:08Z">
+        </test-method> <!-- obrisiKvar -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:testCases.KvaroviTest@5442a311]" name="tearDown" is-config="true" duration-ms="872" started-at="2019-11-30T16:54:33Z" finished-at="2019-11-30T16:54:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- testCases.RegistracijaStanaraTest -->
+      </class> <!-- testCases.KvaroviTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

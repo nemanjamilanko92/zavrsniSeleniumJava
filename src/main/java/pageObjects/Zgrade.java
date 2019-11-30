@@ -21,7 +21,7 @@ public class Zgrade {
 	
 
     @FindBy(id = "broj")
-    @CacheLookup
+    
     private WebElement broj;
     
     public WebElement Broj() {
@@ -29,14 +29,14 @@ public class Zgrade {
     }
 
     @FindBy(id = "brojStanova")
-    @CacheLookup
+    
     private WebElement brojStanova;
     
     public WebElement BrojStanova() {
     	return wait.until(ExpectedConditions.visibilityOf(brojStanova));
     }
     @FindBy(id = "mesto")
-    @CacheLookup
+    
     private WebElement mesto;
     
     public WebElement Mesto() {
@@ -44,7 +44,7 @@ public class Zgrade {
     }
     
     @FindBy(css = "button.btn.btn-outline-primary")
-    @CacheLookup
+    
     private WebElement pregled;
     
     public WebElement Pregled() {
@@ -52,7 +52,7 @@ public class Zgrade {
     }
     
     @FindBy(css = "button.btn.btn-danger")
-    @CacheLookup
+    
     private WebElement resetujte;
     
     public WebElement Resetujte() {
@@ -60,7 +60,7 @@ public class Zgrade {
     }
     
     @FindBy(id = "ulica")
-    @CacheLookup
+    
     private WebElement ulica;
     
     public WebElement Ulica() {
@@ -68,7 +68,7 @@ public class Zgrade {
     }
     
     @FindBy( xpath = "//li[@class='nav-item active']//button[@class='btn btn-primary']")
-    @CacheLookup
+    
     private WebElement dodavanje;
     
     public WebElement Dodavanje() {
@@ -76,7 +76,7 @@ public class Zgrade {
     }
     
     @FindBy( xpath = "//button[contains(text(),'Dodajte')]")
-    @CacheLookup
+    
     private WebElement dodajte;
     
     public WebElement Dodajte() {

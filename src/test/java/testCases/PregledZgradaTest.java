@@ -1,8 +1,11 @@
 package testCases;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.AfterClass;
@@ -32,7 +35,7 @@ public class PregledZgradaTest extends BaseClass{
 		pregled = new Pregled(driver);
 		loginPageObj.logIn(props.getProperty("email"), props.getProperty("password"));
 		adminPocetnaPageObj.Zgrade().click();
-		zgradePageObj.Pregled().click();
+	
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 	}
 	
@@ -58,6 +61,16 @@ public class PregledZgradaTest extends BaseClass{
 	public void PozitivanTestPretrageZgrade4(){
 		pregled.UnosPretrage("AAAAAA", "AAAAAA");
 		assertEquals(pregled.ErrMessZaNepostojecuZgradu().getText(), "Nijedna zgrada sa trazenim kriterijumima nije prondajena!");
+	}
+	
+	@Test
+	public void PozitivanTestPretrageZgrade5(){
+		zgradePageObj.Pregled().click();
+		//System.out.println(pregled.Provera().get(2));
+		
+	
+		assertTrue(pregled.proveraZgrade("Boska Buhe","42","Novi Sad"));
+		
 	}
 	
 	@AfterClass

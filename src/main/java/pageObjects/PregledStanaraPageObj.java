@@ -23,7 +23,7 @@ public class PregledStanaraPageObj {
 	}
 	
 	@FindBy(xpath = "//select[@id='prikaz']")
-	@CacheLookup
+	
 	private WebElement prikazi;
 	
 	public void Prikazi(String value){
@@ -36,7 +36,7 @@ public class PregledStanaraPageObj {
 	
 	
 	@FindBy(xpath = "//input[@id='filter']")
-	@CacheLookup
+	
 	private WebElement filterZaPretragu;
 	
 	public WebElement FilterZaPretragu(){
@@ -46,7 +46,7 @@ public class PregledStanaraPageObj {
 	}
 	
 	@FindBy(xpath = "//button[contains(text(),'Pretraga')]")
-	@CacheLookup
+	
 	private WebElement pretraga;
 	
 	public WebElement Pretraga(){
@@ -56,7 +56,7 @@ public class PregledStanaraPageObj {
 	}
 	
 	@FindBy(xpath = "//a[contains(text(),'Gospodin Predsednik')]")
-	@CacheLookup
+	
 	private WebElement imeIPrezime;
 	
 	public WebElement ImeIPrezime(){
@@ -70,7 +70,7 @@ public class PregledStanaraPageObj {
 	}
 	
 	@FindBy(xpath = "//h2[contains(text(),'Nijedan stanar sa trazenim kriterijumom nije')]")
-	@CacheLookup
+	
 	private WebElement errMessZaNepostojecegStanara;
 	
 	public WebElement ErrMessZaNepostojecegStanara(){
@@ -86,7 +86,7 @@ public class PregledStanaraPageObj {
 	}
 	
 	@FindBy(xpath = "//tr[9]//td[1]//a[1]")
-	@CacheLookup
+	
 	private WebElement ImePrezimeStanar;
 	
 	public WebElement ImePrezimeStanar() {

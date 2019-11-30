@@ -26,7 +26,7 @@ public class Pregled {
 	}
 	
 	@FindBy(id = "prikaz")
-	@CacheLookup
+	
 	private WebElement prikazi;
 	
 	public Select Prikazi(){
@@ -36,7 +36,7 @@ public class Pregled {
 	}
 	
 	@FindBy(xpath = "//input[@id='ulicaBroj']")
-	@CacheLookup
+	
 	private WebElement ulicaBroj;
 	
 	public WebElement UlicaBroj(){
@@ -46,9 +46,8 @@ public class Pregled {
 	}
 	
 	
-	
 	@FindBy(xpath = "//input[@id='mesto']")
-	@CacheLookup
+	
 	private WebElement mesto;
 	
 	public WebElement Mesto(){
@@ -59,35 +58,28 @@ public class Pregled {
 	
 	
 	@FindBy(xpath = "//button[contains(text(),'Pretraga')]")
-	@CacheLookup
+	
 	private WebElement pretraga;
 	
 	public WebElement Pretraga(){
 		
-		
 		return wait.until(ExpectedConditions.elementToBeClickable(pretraga));
 	}
 	
-	@FindBy(xpath = "//a[contains(text(),'Marsala Tita 21, Vrbas')]")
-	@CacheLookup
+	@FindBy(xpath = "/html[1]/body[1]/app-root[1]/app-zgrade[1]/div[1]/app-izlistaj-zgrade[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/a[1]")
+	
 	private WebElement adresaZgrade;
 	
 	public WebElement AdresaZgrade(){
-		WebElement adresaZgrade = driver.findElement(By.xpath("//a[contains(text(),'Marsala Tita 21, Vrbas')]"));
-		try {
-			wait.until(ExpectedConditions.visibilityOf(this.adresaZgrade));
-		}catch (StaleElementReferenceException e) {
-			adresaZgrade = driver.findElement(By.xpath("//a[contains(text(),'Marsala Tita 21, Vrbas')]"));
-		}
+		
 		return wait.until(ExpectedConditions.visibilityOf(adresaZgrade));
 	}
 	
 	@FindBy(xpath = "//h2[contains(text(),'Nijedna zgrada sa trazenim kriterijumima nije')]")
-	@CacheLookup
+	
 	private WebElement errMessZaNepostojecuZgradu;
 	
 	public WebElement ErrMessZaNepostojecuZgradu(){
-		
 		
 		return wait.until(ExpectedConditions.visibilityOf(errMessZaNepostojecuZgradu));
 	}
@@ -103,62 +95,30 @@ public class Pregled {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public List<String> Adresa (){
-		
+	//metoda za potvrdu da li je stanar/zgrada uneta u bazu
+	public boolean proveraZgrade (String ulica,String broj,String mesto){
+	List<String>provera= new ArrayList<String>();
+		provera.add(ulica+" "+broj+","+ " " + mesto);
+	System.out.println(provera);
 		List<String> adrese = new ArrayList<String>();
-		//List <String> filterValidation = new ArrayList<String>();
 
 		WebElement tbody = driver.findElement(By.xpath("//table[@class='table table-hover']//tbody"));
-		List<WebElement> tableRow = driver.findElements(By.tagName("tr"));
+		List<WebElement> tableRow = tbody.findElements(By.tagName("tr"));
 		
 		int table_rowSize = tableRow.size();
 		for(int i = 0;i<table_rowSize;i++){
 			
-			 List < WebElement > Columns_row = tableRow.get(i).findElements(By.tagName("td"));
+			 List < WebElement > Columns_row = tableRow.get(i).findElements(By.cssSelector("td:nth-of-type(1)"));
 			 int columns_count = Columns_row.size();
 			 for (int column = 0; column < columns_count; column++) {
-				 
-				List<WebElement> tdtext = Columns_row.get(i).findElements(By.tagName("a"));
-				for(int indexNmb = 0; indexNmb< tdtext.size();indexNmb++){
-					adrese.add(tdtext.get(indexNmb).getText());
-				
-				}
 
+					adrese.add(Columns_row.get(column).getText());
 				
 			 }
 			 
 		}
-
+		return adrese.containsAll(provera);
 		
-		return adrese;
-	
+		
 	}
 }

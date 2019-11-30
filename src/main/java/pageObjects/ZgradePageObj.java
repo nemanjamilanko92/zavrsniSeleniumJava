@@ -24,7 +24,7 @@ public class ZgradePageObj {
 	
 
     @FindBy(id = "broj")
-    @CacheLookup
+    
     private WebElement broj;
     
     public WebElement Broj() {
@@ -32,14 +32,14 @@ public class ZgradePageObj {
     }
 
     @FindBy(id = "brojStanova")
-    @CacheLookup
+    
     private WebElement brojStanova;
     
     public WebElement BrojStanova() {
     	return wait.until(ExpectedConditions.visibilityOf(brojStanova));
     }
     @FindBy(id = "mesto")
-    @CacheLookup
+    
     private WebElement mesto;
     
     public WebElement Mesto() {
@@ -47,7 +47,7 @@ public class ZgradePageObj {
     }
     
     @FindBy(css = "button.btn.btn-outline-primary")
-    @CacheLookup
+    
     private WebElement pregled;
     
     public WebElement Pregled() {
@@ -55,7 +55,7 @@ public class ZgradePageObj {
     }
     
     @FindBy(css = "button.btn.btn-danger")
-    @CacheLookup
+    
     private WebElement resetujte;
     
     public WebElement Resetujte() {
@@ -63,7 +63,7 @@ public class ZgradePageObj {
     }
     
     @FindBy(id = "ulica")
-    @CacheLookup
+    
     private WebElement ulica;
     
     public WebElement Ulica() {
@@ -71,7 +71,7 @@ public class ZgradePageObj {
     }
     
     @FindBy( xpath = "//li[@class='nav-item active']//button[@class='btn btn-primary']")
-    @CacheLookup
+    
     private WebElement dodavanje;
     
     public WebElement Dodavanje() {
@@ -79,7 +79,7 @@ public class ZgradePageObj {
     }
     
     @FindBy( xpath = "//button[contains(text(),'Dodajte')]")
-    @CacheLookup
+    
     public WebElement dodajte;
     
     public WebElement Dodajte() {
@@ -87,7 +87,7 @@ public class ZgradePageObj {
     }
     
     @FindBy( xpath = "//div[@class='row justify-content-md-center']//div[1]//div[1]//div[1]")
-    @CacheLookup
+    
     private WebElement errMessMesto;
     
     public WebElement ErrMessMesto(){
@@ -95,7 +95,7 @@ public class ZgradePageObj {
     }
     
     @FindBy( xpath = "//div[2]//div[1]//div[1]")
-    @CacheLookup
+    
     private WebElement errMessUlica;
     
     public WebElement ErrMessUlica(){
@@ -103,7 +103,7 @@ public class ZgradePageObj {
     }
     
     @FindBy( xpath = "//div[3]//div[1]//div[1]")
-    @CacheLookup
+    
     private WebElement errMessBroj;
     
     public WebElement ErrMessBroj(){
@@ -111,7 +111,7 @@ public class ZgradePageObj {
     }
     
     @FindBy( xpath = "//div[4]//div[1]//div[1]") //vraca isti path i za nulu
-    @CacheLookup
+    
      private WebElement errMessBrojStanova;
     
     public WebElement ErrMessBrojStanova(){
@@ -120,7 +120,7 @@ public class ZgradePageObj {
     }
     
     @FindBy( xpath = "/html/body/app-root/app-zgrade/div/app-dodaj-zgradu/div/form/fieldset/div[3]/div/div")
-    @CacheLookup
+    
     private WebElement errMessBrojNula;
     
     public WebElement ErrMessBrojNula(){
@@ -190,7 +190,7 @@ public class ZgradePageObj {
 	}
     
     @FindBy(xpath = "//*[@id=\"toast-container\"]/div/div")
-    @CacheLookup
+    
     
     private WebElement successMess;
     
@@ -223,7 +223,7 @@ public class ZgradePageObj {
     }
     
     @FindBy(xpath = "//*[@id='toast-container']/div/div")
-    @CacheLookup
+    
     private WebElement sameAddressMess;
     
     public WebElement ZgradaSaIstomAdresomMessage(){

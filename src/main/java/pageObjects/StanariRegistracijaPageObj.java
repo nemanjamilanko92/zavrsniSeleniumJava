@@ -21,7 +21,7 @@ public class StanariRegistracijaPageObj {
 	}
 
 	@FindBy(id = "email")
-	@CacheLookup
+	
 	private WebElement email;
 	
 	public  WebElement Email() {
@@ -29,7 +29,7 @@ public class StanariRegistracijaPageObj {
 	}
 
 	@FindBy(id = "ime")
-	@CacheLookup
+	
 	private WebElement ime;
 
 	public  WebElement Ime() {
@@ -37,7 +37,7 @@ public class StanariRegistracijaPageObj {
 		}
 
 	@FindBy(id = "lozinka")
-	@CacheLookup
+	
 	private WebElement lozinka;
 	
 	public  WebElement Lozinka() {
@@ -45,7 +45,7 @@ public class StanariRegistracijaPageObj {
 		}
 
 	@FindBy(css = "button.btn.btn-outline-primary")
-	@CacheLookup
+	
 	private WebElement pregled;
 	
 	public  WebElement Pregled() {
@@ -53,7 +53,7 @@ public class StanariRegistracijaPageObj {
 		}
 
 	@FindBy(id = "prezime")
-	@CacheLookup
+	
 	private WebElement prezime;
 
 	public  WebElement Prezime() {
@@ -61,7 +61,7 @@ public class StanariRegistracijaPageObj {
 		}
 	
 	 @FindBy(css = "button.btn.btn-danger")
-	    @CacheLookup
+	    
 	    private WebElement resetujte;
 	 
 	 public  WebElement Resetujte() {
@@ -70,7 +70,7 @@ public class StanariRegistracijaPageObj {
 	 
 	 
 	 @FindBy(xpath = "//b[contains(text(),'Registracija')]")
-	    @CacheLookup
+	    
 	    private WebElement registracija;
 	 
 	 public  WebElement registracija() {
@@ -80,7 +80,7 @@ public class StanariRegistracijaPageObj {
 	 
 	 
 	 @FindBy(xpath  = "//button[contains(text(),'Registrujte')]")
-	    @CacheLookup
+	    
 	    public WebElement registrujte;
 	 
 	 public  WebElement Registrujte() {
@@ -89,7 +89,7 @@ public class StanariRegistracijaPageObj {
 	 
 	 
 	 @FindBy(xpath = "//div[@class='row justify-content-md-center']//div[1]//div[1]//div[1]")
-	 @CacheLookup
+	 
 	 private WebElement emailErrorMsg;
 
 		public  WebElement emailErrorMsg() {
@@ -97,7 +97,7 @@ public class StanariRegistracijaPageObj {
 		}
 	 
 	 @FindBy(xpath = "//div[contains(text(),'Neispravna lozinka!')]")
-	 @CacheLookup
+	 
 	 private WebElement lozinkaErrorMsg;
 	 
 		public  WebElement lozinkaErrorMsg() {
@@ -105,7 +105,7 @@ public class StanariRegistracijaPageObj {
 		}
 	 
 	 @FindBy(xpath = "//div[3]//div[1]//div[1]")
-	 @CacheLookup
+	 
 	 private WebElement imeErrorMsg;
 	 
 		public  WebElement imeErrorMsg() {
@@ -114,7 +114,7 @@ public class StanariRegistracijaPageObj {
 	 
 	 
 	 @FindBy(xpath = "//div[4]//div[1]//div[1]")
-	 @CacheLookup
+	 
 	 private WebElement prezimeErrorMsg;
 	 
 		public  WebElement prezimeErrorMsg() {
@@ -154,7 +154,7 @@ public class StanariRegistracijaPageObj {
 		}
 		
 		 @FindBy(xpath = "//*[@id=\"toast-container\"]/div/div")
-		 @CacheLookup
+		 
 		 private WebElement uspesnoRegStanar;
 		 
 			public  WebElement UspesnoRegStanarMsg() {

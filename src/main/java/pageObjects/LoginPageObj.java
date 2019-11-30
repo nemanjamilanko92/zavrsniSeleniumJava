@@ -21,7 +21,7 @@ public class LoginPageObj {
 	}
 	
 	@FindBy(id = "email")
-	@CacheLookup
+	
 	private WebElement email;
 	
 	public WebElement Email() {
@@ -30,10 +30,8 @@ public class LoginPageObj {
 	};
 	
 	
-	
-	
 	@FindBy(id = "lozinka")
-	@CacheLookup
+	
 	private WebElement lozinka;
 	
 	public WebElement Lozinka() {
@@ -42,7 +40,7 @@ public class LoginPageObj {
 	};
 	
 	@FindBy(xpath = "//button[@class='btn btn-primary']")
-	@CacheLookup
+	
 	private WebElement ulogujSeBtn;
 	
 	public WebElement UlogujSeBtn() {
@@ -58,11 +56,12 @@ public class LoginPageObj {
 		
 		return wait.until(ExpectedConditions.visibilityOf(errorMsg));
 	};
-	public void logIn(String email,String lozinka) throws InterruptedException {
+	public void logIn(String email,String lozinka) throws InterruptedException  {
 		this.Email().clear();
 		this.Lozinka().clear();
 		this.Email().sendKeys(email);
 		this.Lozinka().sendKeys(lozinka);
+		Thread.sleep(1000);
 		this.UlogujSeBtn().click();
 	}
 	

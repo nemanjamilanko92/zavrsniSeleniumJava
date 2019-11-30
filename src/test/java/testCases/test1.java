@@ -27,11 +27,11 @@ public class test1 extends BaseClass{
 		loginPageObj = new LoginPageObj(driver);
 		adminPocetnaPageObj = new AdminPocetnaPageObj(driver);
 	}
-	@Test(enabled = false)
+	@Test
 	public void loginPositivniTest() throws InterruptedException {
 		loginPageObj.logIn(props.getProperty("email"),props.getProperty("password"));
 		assertEquals(adminPocetnaPageObj.getAdminEmailText(), "admin@gmail.com");
-	
+		adminPocetnaPageObj.LogOutBtn().click();
 		
 		
 	}

@@ -16,12 +16,12 @@ public class NavBarPredsednikPageObj {
 
 	public NavBarPredsednikPageObj(WebDriver driver) {
 		this.driver = driver;
-		wait = new WebDriverWait(driver, 20);
+		wait = new WebDriverWait(driver, 5);
 		PageFactory.initElements(driver, this);
 
 	}
 	@FindBy(css = "button.btn.btn-secondary")
-    @CacheLookup
+    
     private WebElement izlogujteSe;
 	
 	public WebElement IzlogujteSe() {
@@ -30,7 +30,7 @@ public class NavBarPredsednikPageObj {
 	}
 	
 	@FindBy(xpath = "//a[contains(text(),'Pocetna')]")
-	@CacheLookup
+	
 	private WebElement pocetna;
 	
 	public WebElement Pocetna() {
@@ -39,12 +39,32 @@ public class NavBarPredsednikPageObj {
 	}
     
 	@FindBy(xpath = "//a[contains(text(),'Promena lozinke')]")
-	@CacheLookup
+	
 	private WebElement promenaLozine;
 	
 	public WebElement PromenaLozine() {
 		return wait.until(ExpectedConditions.elementToBeClickable(promenaLozine));
 		
 	}
-    
+	
+	@FindBy(xpath = "//label[@class='nav-link active']")
+	
+	private WebElement emailText;
+	
+	public WebElement EmailText() {
+		return wait.until(ExpectedConditions.elementToBeClickable(emailText));
+		
+	}
+	
+	public String getEmailText() {
+		return EmailText().getText().trim();
+	}
+
+	@FindBy(xpath = "//button[@class='btn btn-secondary']")
+	
+	private WebElement logOutBtn;
+	
+	public WebElement LogOutBtn() {
+		return wait.until(ExpectedConditions.elementToBeClickable(logOutBtn));
+	}
 }
