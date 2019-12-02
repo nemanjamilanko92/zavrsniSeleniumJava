@@ -94,6 +94,7 @@ public class ZgradaKucniSavetPageObj {
 	}
 	
 	@FindBy(id = "dodajObavestenje")
+	
 	private WebElement dodaj;
 	
 	public WebElement Dodaj() {
@@ -108,16 +109,17 @@ public class ZgradaKucniSavetPageObj {
 		return wait.until(ExpectedConditions.visibilityOf(unosIzmeneTeksta));
 	}
 	
-	 @FindBy(xpath = "//*[@id=\"toast-container\"]/div/div")
+	@FindBy(xpath = "//*[@id=\"toast-container\"]/div/div")
 	 
-	 private WebElement alertObavestenja;
+	private WebElement alertObavestenja;
 	 
-		public  WebElement alertObavestenja() {
-			  return wait.until(ExpectedConditions.visibilityOf(alertObavestenja));
-		}
-		public  String alertObavestenjaMsg() {
+	public  WebElement alertObavestenja() {
+		return wait.until(ExpectedConditions.visibilityOf(alertObavestenja));
+	}
+		
+	public  String alertObavestenjaMsg() {
 			  
-			return alertObavestenja().getText().trim();
+		return alertObavestenja().getText().trim();
 		}
 		
 		@FindBy(id = "tekstObavestenja")

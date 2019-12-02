@@ -54,17 +54,16 @@ public class PromenaLozinkeTest extends BaseClass {
 		assertEquals(promenaLozinkePageObj.getAlertMsg(), "Lozinka uspesno izmenjena!");
 		assertEquals(driver.getCurrentUrl(), "http://localhost:8080/logovanje");
 	}
+	
 	@Test(priority = 2)
 	public void potvrdaDaJeLozinkaPromenjena() throws InterruptedException {
 		loginPageObj.logIn("predSkup@gmail.com","Bar6slova");
 		assertEquals(navBarPredsednikPageObj.getEmailText(), "predSkup@gmail.com");
-		
-
 	}
 	
 	@Test(priority = 3)
 	public void negativniTestovi1() {
-		
+		navBarPredsednikPageObj.PromenaLozine().click();
 		promenaLozinkePageObj.unosLozinke("","","");
 		
 		assertEquals(promenaLozinkePageObj.getstaraLozinkaErrMsg(), "Ovo polje je obavezno!");

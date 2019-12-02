@@ -15,7 +15,7 @@ public class StanariRegistracijaPageObj {
 
 	public StanariRegistracijaPageObj(WebDriver driver) {
 		this.driver = driver;
-		wait = new WebDriverWait(driver, 20);
+		wait = new WebDriverWait(driver, 5);
 		PageFactory.initElements(driver, this);
 
 	}
@@ -160,9 +160,9 @@ public class StanariRegistracijaPageObj {
 			public  WebElement UspesnoRegStanarMsg() {
 				  return wait.until(ExpectedConditions.visibilityOf(uspesnoRegStanar));
 			}
-			public  String getUspesnoRegStanarMsg() {
+		public  String getUspesnoRegStanarMsg() {
 				  
-				return UspesnoRegStanarMsg().getText().trim();
+			return UspesnoRegStanarMsg().getText().trim();
 			}
 			
 		public String getEmailInputValue(){

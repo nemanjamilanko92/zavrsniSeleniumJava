@@ -48,7 +48,7 @@ public class KvaroviPageObj {
 		return wait.until(ExpectedConditions.elementToBeClickable(mesto));
 	}
 	
-	@FindBy(xpath   = "/html/body/app-root/app-zgrada/div/div[2]/app-dodaj-kvar/div/form/fieldset/div[1]/div/div")
+	@FindBy(xpath = "/html/body/app-root/app-zgrada/div/div[2]/app-dodaj-kvar/div/form/fieldset/div[1]/div/div")
 	private WebElement mestoErrMsg;
 	
 	public WebElement MestoErrMsg() {
@@ -85,7 +85,7 @@ public class KvaroviPageObj {
 		return wait.until(ExpectedConditions.elementToBeClickable(izaberiBtn));
 	}
 	
-	@FindBy(xpath   = "//input[@placeholder='Pretraga']")
+	@FindBy(xpath = "//input[@placeholder='Pretraga']")
 	private WebElement pretraga;
 	
 	public WebElement Pretraga() {

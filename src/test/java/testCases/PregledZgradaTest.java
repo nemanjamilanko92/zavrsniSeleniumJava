@@ -65,9 +65,7 @@ public class PregledZgradaTest extends BaseClass{
 	
 	@Test
 	public void PozitivanTestPretrageZgrade5(){
-		zgradePageObj.Pregled().click();
-		//System.out.println(pregled.Provera().get(2));
-		
+		zgradePageObj.Pregled().click();		
 	
 		assertTrue(pregled.proveraZgrade("Boska Buhe","42","Novi Sad"));
 		

@@ -85,11 +85,11 @@ public class Pregled {
 	}
 	
 	public void UnosPretrage(String ulicaBroj, String mesto) {
-		this.ulicaBroj.clear();
-		this.mesto.clear();
-		this.ulicaBroj.sendKeys(ulicaBroj);
-		this.mesto.sendKeys(mesto);
-		this.pretraga.click();
+		this.UlicaBroj().clear();
+		this.Mesto().clear();
+		this.UlicaBroj().sendKeys(ulicaBroj);
+		this.Mesto().sendKeys(mesto);
+		this.Pretraga().click();
 	}
 	
 	
@@ -100,8 +100,8 @@ public class Pregled {
 	List<String>provera= new ArrayList<String>();
 		provera.add(ulica+" "+broj+","+ " " + mesto);
 	System.out.println(provera);
+	
 		List<String> adrese = new ArrayList<String>();
-
 		WebElement tbody = driver.findElement(By.xpath("//table[@class='table table-hover']//tbody"));
 		List<WebElement> tableRow = tbody.findElements(By.tagName("tr"));
 		

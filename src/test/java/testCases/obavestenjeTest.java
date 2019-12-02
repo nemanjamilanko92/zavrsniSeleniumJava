@@ -55,7 +55,6 @@ public class obavestenjeTest  extends BaseClass{
 	
 	@Test(priority = 2)
 	public void dodajObavestenjeNegativan() {
-	
 		zgradaKucniSavetPageObj.dodajObavestenje("");
 		assertFalse(zgradaKucniSavetPageObj.potvrdiBtn.isEnabled());
 	}

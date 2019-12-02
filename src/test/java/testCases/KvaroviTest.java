@@ -27,6 +27,8 @@ import setup.BaseClass;
 public class KvaroviTest extends BaseClass{
 		LoginPageObj loginPageObj;
 		KvaroviPageObj kvaroviPageObj;
+		
+		//OVAKAV BEFORE METHOD JE KORISCEN ZBOG PROBLEMA SA STALE ELEMENTIMA
 		@BeforeMethod
 		public void SetUp() throws IOException, InterruptedException {
 			driver = initDriver();
@@ -37,6 +39,7 @@ public class KvaroviTest extends BaseClass{
 			loginPageObj.logIn("predSkup@gmail.com", "Bar5slova");
 			driver.get("http://localhost:8080/zgrada/1/kvarovi");
 		}
+		
 		@Test
 		public void dodavanjeKvaraPos() {
 		
@@ -71,12 +74,10 @@ public class KvaroviTest extends BaseClass{
 			assertFalse(kvaroviPageObj.submit.isEnabled());
 		}
 		@Test
-		public void obrisiKvar() throws AWTException {
+		public void obrisiKvar() {
 			 
 			kvaroviPageObj.brisi.get(0).click();
 			assertEquals(kvaroviPageObj.alertObavestenjaMsg(), "Uspesno izbrisan kvar");	
-			Actions action = new Actions(driver);
-			action.contextClick(kvaroviPageObj.brisi.get(0));
 		
 		}
 		@AfterMethod

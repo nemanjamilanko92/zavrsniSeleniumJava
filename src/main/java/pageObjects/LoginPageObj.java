@@ -48,7 +48,7 @@ public class LoginPageObj {
 		return wait.until(ExpectedConditions.elementToBeClickable(ulogujSeBtn));
 	};
 	
-	@FindBy(xpath = "/html/body/app-root/app-logovanje/div/form/fieldset/div[1]")
+	@FindBy(xpath = "//div[@class='alert alert-dismissible alert-danger']")
 
 	private WebElement errorMsg;
 	
@@ -56,12 +56,12 @@ public class LoginPageObj {
 		
 		return wait.until(ExpectedConditions.visibilityOf(errorMsg));
 	};
-	public void logIn(String email,String lozinka) throws InterruptedException  {
+	public void logIn(String email,String lozinka)   {
 		this.Email().clear();
 		this.Lozinka().clear();
 		this.Email().sendKeys(email);
 		this.Lozinka().sendKeys(lozinka);
-		Thread.sleep(1000);
+	
 		this.UlogujSeBtn().click();
 	}
 	

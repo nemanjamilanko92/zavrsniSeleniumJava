@@ -1,5 +1,8 @@
 package pageObjects;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
@@ -60,13 +63,8 @@ public class PregledStanaraPageObj {
 	private WebElement imeIPrezime;
 	
 	public WebElement ImeIPrezime(){
-	WebElement	imeIprezime = driver.findElement(By.xpath("//a[contains(text(),'Gospodin Predsednik')]"));
-		try {
-		 wait.until(ExpectedConditions.visibilityOf(this.imeIPrezime));
-		}catch (StaleElementReferenceException e) {
-			imeIprezime = driver.findElement(By.xpath("//a[contains(text(),'Gospodin Predsednik')]"));
-		}
-		return  wait.until(ExpectedConditions.visibilityOf(imeIprezime));
+	
+		return  wait.until(ExpectedConditions.visibilityOf(imeIPrezime));
 	}
 	
 	@FindBy(xpath = "//h2[contains(text(),'Nijedan stanar sa trazenim kriterijumom nije')]")
@@ -80,9 +78,9 @@ public class PregledStanaraPageObj {
 	}
 	
 	public void UnosPretrage(String imeIPrezime) {
-		this.filterZaPretragu.clear();
-		this.filterZaPretragu.sendKeys(imeIPrezime);
-		this.pretraga.click();
+		this.FilterZaPretragu().clear();
+		this.FilterZaPretragu().sendKeys(imeIPrezime);
+		this.Pretraga().click();
 	}
 	
 	@FindBy(xpath = "//tr[9]//td[1]//a[1]")
@@ -91,6 +89,35 @@ public class PregledStanaraPageObj {
 	
 	public WebElement ImePrezimeStanar() {
 		return wait.until(ExpectedConditions.visibilityOf(ImePrezimeStanar));
+	}
+	
+	
+	//metoda za potvrdu da li je stanar/zgrada uneta u bazu
+	public boolean proveraStanara (String Ime,String Prezime,String Email){
+	List<String>provera= new ArrayList<String>();
+		provera.add(Ime+" "+Prezime+" "+ Email);
+
+		List<String> stanari = new ArrayList<String>();
+		WebElement tbody = driver.findElement(By.xpath("//table[@class='table table-hover']//tbody"));
+		List<WebElement> tableRow = tbody.findElements(By.tagName("tr"));
+		
+		int table_rowSize = tableRow.size();
+		for(int i = 0;i<table_rowSize;i++){
+			
+			 List < WebElement > Columns_row = tableRow.get(i).findElements(By.cssSelector("td:nth-of-type(1)"));
+			 int columns_count = Columns_row.size();
+			 for (int column = 0; column < columns_count; column++) {
+				 try {
+				 stanari.add(Columns_row.get(column).getText());
+				 }catch (StaleElementReferenceException e) {
+					 stanari.add(Columns_row.get(column).getText());
+				}
+			 }
+			 
+		}
+		return stanari.containsAll(provera);
+		
+		
 	}
 	
 	

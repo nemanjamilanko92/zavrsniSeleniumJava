@@ -83,6 +83,7 @@ public class ZgradePageObj {
     public WebElement dodajte;
     
     public WebElement Dodajte() {
+    	
     	return wait.until(ExpectedConditions.elementToBeClickable(dodajte));
     }
     
@@ -107,12 +108,13 @@ public class ZgradePageObj {
     private WebElement errMessBroj;
     
     public WebElement ErrMessBroj(){
+    	
     	return wait.until(ExpectedConditions.visibilityOf(errMessBroj));
     }
     
     @FindBy( xpath = "//div[4]//div[1]//div[1]") //vraca isti path i za nulu
     
-     private WebElement errMessBrojStanova;
+    private WebElement errMessBrojStanova;
     
     public WebElement ErrMessBrojStanova(){
     
