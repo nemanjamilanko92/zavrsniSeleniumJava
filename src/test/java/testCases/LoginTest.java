@@ -22,21 +22,32 @@ public class LoginTest extends BaseClass{
 	public void proba() throws IOException {
 	
 		driver = initDriver();
+		  //odlazimo na stranicu za logovanje
 		driver.get(props.getProperty("URL"));
 		driver.manage().window().maximize();
+		//instanciranje objekata
 		loginPageObj = new LoginPageObj(driver);
 		adminPocetnaPageObj = new AdminPocetnaPageObj(driver);
 	}
 	@Test
 	public void loginPositivniTest()  {
+		
+		//unosimo ocekivane podatke za logovanje
+	    //ocekujemo da cemo na pocetnoj stranici procitati mail ulogovanog korsinika
+		
 		loginPageObj.logIn(props.getProperty("email"),props.getProperty("password"));
 		assertEquals(adminPocetnaPageObj.getAdminEmailText(), "admin@gmail.com");
 		adminPocetnaPageObj.LogOutBtn().click();
 		
 		
 	}
+	//za ove testove koristimo data provider (../DataProvider/data)
 	@Test(dataProvider ="data-provider" )
 	public void loginNegativniTestovi(String email,String lozinka,String rez)   {
+		
+		 //unosimo pogresne podatke za logovanje
+	    //ocekujemo razlicite poruke za neuspesno logovanje u zavisnosti od prosledjenih podataka
+		
 		loginPageObj.logIn(email,lozinka);
 		assertEquals(loginPageObj.getErrMsgText(),rez);
 		System.out.println(loginPageObj.getErrMsgText());

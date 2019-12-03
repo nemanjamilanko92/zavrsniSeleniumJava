@@ -37,7 +37,6 @@ public class PregledStanaraPageObj {
 	}
 	
 	
-	
 	@FindBy(xpath = "//input[@id='filter']")
 	
 	private WebElement filterZaPretragu;
@@ -72,8 +71,6 @@ public class PregledStanaraPageObj {
 	private WebElement errMessZaNepostojecegStanara;
 	
 	public WebElement ErrMessZaNepostojecegStanara(){
-		
-		
 		return wait.until(ExpectedConditions.visibilityOf(errMessZaNepostojecegStanara));
 	}
 	
@@ -112,13 +109,8 @@ public class PregledStanaraPageObj {
 				 }catch (StaleElementReferenceException e) {
 					 stanari.add(Columns_row.get(column).getText());
 				}
-			 }
-			 
+			 } 
 		}
 		return stanari.containsAll(provera);
-		
-		
-	}
-	
-	
+	}	
 }

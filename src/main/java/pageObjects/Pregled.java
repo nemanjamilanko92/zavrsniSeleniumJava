@@ -72,9 +72,8 @@ public class Pregled {
 	
 	public WebElement AdresaZgrade(){
 		
-		return wait.until(ExpectedConditions.visibilityOf(adresaZgrade));
-	}
-	
+		return wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(adresaZgrade)));
+}
 	@FindBy(xpath = "//h2[contains(text(),'Nijedna zgrada sa trazenim kriterijumima nije')]")
 	
 	private WebElement errMessZaNepostojecuZgradu;
@@ -92,7 +91,7 @@ public class Pregled {
 		this.Pretraga().click();
 	}
 	
-	
+	//ZA STALE  wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(adresaZgrade)));
 	
 	
 	//metoda za potvrdu da li je stanar/zgrada uneta u bazu
@@ -113,12 +112,8 @@ public class Pregled {
 			 for (int column = 0; column < columns_count; column++) {
 
 					adrese.add(Columns_row.get(column).getText());
-				
-			 }
-			 
+			 } 
 		}
-		return adrese.containsAll(provera);
-		
-		
+		return adrese.containsAll(provera);	
 	}
 }

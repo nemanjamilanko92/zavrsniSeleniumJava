@@ -78,11 +78,9 @@ public class PromenaLozinkePageObj {
     
     public WebElement staraLozinkaErrMsg() {
     	
-    	
-    		return  wait.until(ExpectedConditions.visibilityOf(staraLozinkaErrMsg));
+    	return  wait.until(ExpectedConditions.visibilityOf(staraLozinkaErrMsg));
    
 	}
-    
     
     public String getstaraLozinkaErrMsg() {
 		
@@ -98,7 +96,6 @@ public class PromenaLozinkePageObj {
 		return wait.until(ExpectedConditions.visibilityOf(novaLozinkaErrMsg));
 	}
     
-    
     public String getnovaLozinkaErrMsg() {
 		
 		return novaLozinkaErrMsg().getText().trim();
@@ -112,8 +109,7 @@ public class PromenaLozinkePageObj {
 		
 		return wait.until(ExpectedConditions.visibilityOf(potvrdaNoveLozinkaErrMsg));
 	}
-    
-    
+        
     public String getpotvrdaNoveLozinkaErrMsg() {
 		
 		return potvrdaNoveLozinkaErrMsg().getText();
@@ -131,7 +127,5 @@ public class PromenaLozinkePageObj {
     	if(isEnabled=true) {
     	this.promeniteLozinku.click();
     	}
-    }
-    
-    
+    }  
 }

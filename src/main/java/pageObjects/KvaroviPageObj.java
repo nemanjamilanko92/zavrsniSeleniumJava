@@ -56,7 +56,6 @@ public class KvaroviPageObj {
 	}
 	
 	public String getMestoErrMsg() {
-		
 		return  MestoErrMsg().getText().trim();
 	}
 	
@@ -140,27 +139,25 @@ public class KvaroviPageObj {
 		this.Mesto().sendKeys(mesto);
 		this.Opis().sendKeys(opis);
 		this.Opis().sendKeys(Keys.TAB);
-	
 		boolean isEnb = submit.isEnabled();
 		if(isEnb=true) {
 		this.submit.click();
 		}
 	}
 	
-	@FindBy(xpath = "//div[@class='toast-message ng-star-inserted']")
+	@FindBy(xpath = "//div[@class='toast-message ng-star-inserted']") 
+	private WebElement alertObavestenja;
 	 
-	 private WebElement alertObavestenja;
-	 
-		public  WebElement alertObavestenja() {
-			  return wait.until(ExpectedConditions.visibilityOf(alertObavestenja));
-		}
-		public  String alertObavestenjaMsg() {
-			  
-			return alertObavestenja().getText().trim();
-		}
+	public  WebElement alertObavestenja() {
+		return wait.until(ExpectedConditions.visibilityOf(alertObavestenja));
+	}
+	
+	public  String alertObavestenjaMsg() { 
+		return alertObavestenja().getText().trim();
+	}
 		
-		@FindBy(xpath = "//span[contains(text(),'brisi')]")
+	@FindBy(xpath = "//span[contains(text(),'brisi')]")
 
-		public List<WebElement> brisi;
+	public List<WebElement> brisi;
 		
 }

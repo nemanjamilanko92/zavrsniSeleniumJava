@@ -27,49 +27,64 @@ public class PregledZgradaTest extends BaseClass{
 	public void SetUp() throws IOException, InterruptedException {
 	
 		driver = initDriver();
+		   //odlazimo na stranicu za logovanje
 		driver.get(props.getProperty("URL"));
 		driver.manage().window().maximize();
+		//instanciranje objekata
 		zgradePageObj = new ZgradePageObj(driver);
 		loginPageObj = new LoginPageObj(driver);
 		adminPocetnaPageObj = new AdminPocetnaPageObj(driver);
 		pregled = new Pregled(driver);
+		 //logujemo se kao admin
 		loginPageObj.logIn(props.getProperty("email"), props.getProperty("password"));
+		 //navigujemo na stranicu pregleda zgrada
 		adminPocetnaPageObj.Zgrade().click();
-	
+		zgradePageObj.Pregled().click();
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 	}
-	
+	//ISKORISTI METDO ZA PRELGED ZGRADE
 	@Test
 	public void PozitivanTestPretrageZgrade1(){
+		
+		//u polja za pretragu zgrada unosimo adresu i mesto zgrade
+	    //ocekujemo da ce se zgrada pojaviti u filtriranoj listi
+		
 		pregled.UnosPretrage("Marsala Tita", "Vrbas");
-		assertEquals(pregled.AdresaZgrade().getText(), "Marsala Tita 21, Vrbas");
+		assertTrue(pregled.proveraZgrade("Marsala Tita","21","Vrbas"));
 	}
 	
 	@Test
 	public void PozitivanTestPretrageZgrade2() {
+		
+		 //u polje za pretragu zgrada unosimo samo adresu zgrade
+	    //ocekujemo da ce se zgrada pojaviti u filtriranoj listi
+
 		pregled.UnosPretrage("Marsala Tita", "");
-		assertEquals(pregled.AdresaZgrade().getText(), "Marsala Tita 21, Vrbas");
+		assertTrue(pregled.proveraZgrade("Marsala Tita","21","Vrbas"));
 	}
 	
 	@Test
 	public void PozitivanTestPretrageZgrade3() {
+		
+		//u polje za pretragu zgrada unosimo samo mesto zgrade
+	    //ocekujemo da ce se zgrada pojaviti u filtriranoj listi
+		
 		pregled.UnosPretrage("", "Vrbas");
-		assertEquals(pregled.AdresaZgrade().getText(), "Marsala Tita 21, Vrbas");
+		assertTrue(pregled.proveraZgrade("Marsala Tita","21","Vrbas"));
+
 	}
 	
 	@Test
 	public void PozitivanTestPretrageZgrade4(){
+		
+		//u polje za pretragu zgrade unosimo nepostojecu zgradu (nasumicni text)
+	    //ocekujemo poruku da ni jedna zgrada nije pronadjena
+		
 		pregled.UnosPretrage("AAAAAA", "AAAAAA");
 		assertEquals(pregled.ErrMessZaNepostojecuZgradu().getText(), "Nijedna zgrada sa trazenim kriterijumima nije prondajena!");
 	}
 	
-	@Test
-	public void PozitivanTestPretrageZgrade5(){
-		zgradePageObj.Pregled().click();		
-	
-		assertTrue(pregled.proveraZgrade("Boska Buhe","42","Novi Sad"));
-		
-	}
+
 	
 	@AfterClass
 	public void tearDown(){

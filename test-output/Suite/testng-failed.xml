@@ -1,19 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <listeners>
-    <listener class-name="setup.ExtentReporterNG"/>
-    <listener class-name="setup.ScreenshotListeners"/>
-  </listeners>
-  <test thread-count="5" name="Test(failed)">
+  <test thread-count="5" name="Test0(failed)">
     <classes>
-      <class name="testCases.test1">
+      <class name="testCases.PregledZgradaTest">
         <methods>
-          <include name="loginNegativniTestovi" invocation-numbers="0"/>
+          <include name="PozitivanTestPretrageZgrade3"/>
+          <include name="SetUp"/>
           <include name="tearDown"/>
-          <include name="proba"/>
+          <include name="PozitivanTestPretrageZgrade2"/>
+          <include name="PozitivanTestPretrageZgrade4"/>
+          <include name="PozitivanTestPretrageZgrade1"/>
         </methods>
-      </class> <!-- testCases.test1 -->
+      </class> <!-- testCases.PregledZgradaTest -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- Test0(failed) -->
+  <test thread-count="5" name="Test1(failed)">
+    <classes>
+      <class name="testCases.StanTest">
+        <methods>
+          <include name="dodavanjeStanaraTest"/>
+          <include name="postaviZaPredsednika"/>
+          <include name="SetUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- testCases.StanTest -->
+    </classes>
+  </test> <!-- Test1(failed) -->
+  <test thread-count="5" name="Test2(failed)">
+    <classes>
+      <class name="testCases.RegistracijaStanaraTest">
+        <methods>
+          <include name="SetUp"/>
+          <include name="tearDown"/>
+          <include name="registracijaStanaraPos2"/>
+        </methods>
+      </class> <!-- testCases.RegistracijaStanaraTest -->
+    </classes>
+  </test> <!-- Test2(failed) -->
+  <test thread-count="5" name="Test3(failed)">
+    <classes>
+      <class name="testCases.DodavanjeZgradaTest">
+        <methods>
+          <include name="PozitivanTestIstaAdresaZgrade"/>
+          <include name="SetUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- testCases.DodavanjeZgradaTest -->
+    </classes>
+  </test> <!-- Test3(failed) -->
+  <test thread-count="5" name="Test5(failed)">
+    <classes>
+      <class name="testCases.TackeDnevnogRedaTest">
+        <methods>
+          <include name="obrisiObavestenjePozitivan"/>
+          <include name="SetUp"/>
+          <include name="izmeniTackuDnevnogRedaPozitivan"/>
+          <include name="tearDown"/>
+          <include name="dodajTackuDnevnogRedaPozitivan"/>
+          <include name="dodajTackuDnevnogRedaNegativan"/>
+          <include name="dodavanjePredlogaTackeUSkupstinuPozitivan"/>
+        </methods>
+      </class> <!-- testCases.TackeDnevnogRedaTest -->
+    </classes>
+  </test> <!-- Test5(failed) -->
+  <test thread-count="5" name="Test7(failed)">
+    <classes>
+      <class name="testCases.obavestenjeTest">
+        <methods>
+          <include name="izmeniObavestenjePozitivan"/>
+          <include name="obrisiObavestenjePozitivan"/>
+          <include name="SetUp"/>
+          <include name="dodajObavestenjePozitivan"/>
+          <include name="dodajObavestenjeNegativan"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- testCases.obavestenjeTest -->
+    </classes>
+  </test> <!-- Test7(failed) -->
+  <test thread-count="5" name="Test8(failed)">
+    <classes>
+      <class name="testCases.KvaroviTest">
+        <methods>
+          <include name="dodavanjeKvarNegativniTest"/>
+          <include name="obrisiKvar"/>
+          <include name="dodavanjeKvaraPosBezOdgLica"/>
+          <include name="tearDown"/>
+          <include name="SetUp"/>
+          <include name="dodavanjeKvarNegativniTest1"/>
+          <include name="dodavanjeKvaraPos"/>
+          <include name="dodavanjeKvarNegativniTest2"/>
+        </methods>
+      </class> <!-- testCases.KvaroviTest -->
+    </classes>
+  </test> <!-- Test8(failed) -->
 </suite> <!-- Failed suite [Suite] -->

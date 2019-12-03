@@ -17,7 +17,6 @@ public class StanariRegistracijaPageObj {
 		this.driver = driver;
 		wait = new WebDriverWait(driver, 5);
 		PageFactory.initElements(driver, this);
-
 	}
 
 	@FindBy(id = "email")
@@ -60,128 +59,122 @@ public class StanariRegistracijaPageObj {
 		  return wait.until(ExpectedConditions.visibilityOf(prezime));
 		}
 	
-	 @FindBy(css = "button.btn.btn-danger")
+	@FindBy(css = "button.btn.btn-danger")
 	    
-	    private WebElement resetujte;
+	private WebElement resetujte;
 	 
-	 public  WebElement Resetujte() {
+	public  WebElement Resetujte() {
 		  return wait.until(ExpectedConditions.elementToBeClickable(resetujte));
 		}
 	 
 	 
-	 @FindBy(xpath = "//b[contains(text(),'Registracija')]")
+	@FindBy(xpath = "//b[contains(text(),'Registracija')]")
 	    
-	    private WebElement registracija;
+	private WebElement registracija;
 	 
-	 public  WebElement registracija() {
+	public  WebElement registracija() {
 		  return wait.until(ExpectedConditions.elementToBeClickable(registracija));
-		}
-	 
-	 
-	 
-	 @FindBy(xpath  = "//button[contains(text(),'Registrujte')]")
+		} 
+	  
+	@FindBy(xpath  = "//button[contains(text(),'Registrujte')]")
 	    
-	    public WebElement registrujte;
+	public WebElement registrujte;
 	 
-	 public  WebElement Registrujte() {
-		  return wait.until(ExpectedConditions.elementToBeClickable(registrujte));
+	public  WebElement Registrujte() {
+		return wait.until(ExpectedConditions.elementToBeClickable(registrujte));
 		}
 	 
+	@FindBy(xpath = "//div[@class='row justify-content-md-center']//div[1]//div[1]//div[1]")
 	 
-	 @FindBy(xpath = "//div[@class='row justify-content-md-center']//div[1]//div[1]//div[1]")
-	 
-	 private WebElement emailErrorMsg;
+	private WebElement emailErrorMsg;
 
-		public  WebElement emailErrorMsg() {
-			  return wait.until(ExpectedConditions.visibilityOf(emailErrorMsg));
+	public  WebElement emailErrorMsg() {
+		return wait.until(ExpectedConditions.visibilityOf(emailErrorMsg));
 		}
 	 
-	 @FindBy(xpath = "//div[contains(text(),'Neispravna lozinka!')]")
+	@FindBy(xpath = "//div[contains(text(),'Neispravna lozinka!')]")
 	 
-	 private WebElement lozinkaErrorMsg;
+	private WebElement lozinkaErrorMsg;
 	 
-		public  WebElement lozinkaErrorMsg() {
-			  return wait.until(ExpectedConditions.visibilityOf(lozinkaErrorMsg));
+	public  WebElement lozinkaErrorMsg() {
+		return wait.until(ExpectedConditions.visibilityOf(lozinkaErrorMsg));
 		}
 	 
-	 @FindBy(xpath = "//div[3]//div[1]//div[1]")
+	@FindBy(xpath = "//div[3]//div[1]//div[1]")
 	 
-	 private WebElement imeErrorMsg;
+	private WebElement imeErrorMsg;
 	 
-		public  WebElement imeErrorMsg() {
-			  return wait.until(ExpectedConditions.visibilityOf(imeErrorMsg));
-		}
+	public  WebElement imeErrorMsg() {
+		return wait.until(ExpectedConditions.visibilityOf(imeErrorMsg));
+		} 
 	 
+	@FindBy(xpath = "//div[4]//div[1]//div[1]")
 	 
-	 @FindBy(xpath = "//div[4]//div[1]//div[1]")
+	private WebElement prezimeErrorMsg;
 	 
-	 private WebElement prezimeErrorMsg;
-	 
-		public  WebElement prezimeErrorMsg() {
-			  return wait.until(ExpectedConditions.visibilityOf(prezimeErrorMsg));
-		}
-		
-		public void regStanara(String email,String lozinka,String ime,String prezime) {
-			
-			this.Email().clear();
-			this.Lozinka().clear();
-			this.Ime().clear();
-			this.Prezime().clear();
-			this.Email().sendKeys(email);
-			this.Lozinka().sendKeys(lozinka);
-			this.Ime().sendKeys(ime);
-			this.Prezime().sendKeys(prezime);
-			this.Prezime().sendKeys(Keys.TAB); //ovaj korak je potreban kako bi se izazvala poruka na input polju broj stanova
-	    	boolean isEnabled = registrujte.isEnabled();
-	    	if(isEnabled=true){
-	    		this.registrujte.click();
-	    	}else{
-	    		System.out.println("Na dugme ne moze da se klikne!");
-	    	}
-			
+	public  WebElement prezimeErrorMsg() {
+		return wait.until(ExpectedConditions.visibilityOf(prezimeErrorMsg));
 		}
 		
-		public void unosenjeVrednostiStanara(String email,String lozinka,String ime,String prezime) {
+	public void regStanara(String email,String lozinka,String ime,String prezime) {	
+		this.Email().clear();
+		this.Lozinka().clear();
+		this.Ime().clear();
+		this.Prezime().clear();
+		this.Email().sendKeys(email);
+		this.Lozinka().sendKeys(lozinka);
+		this.Ime().sendKeys(ime);
+		this.Prezime().sendKeys(prezime);
+		this.Prezime().sendKeys(Keys.TAB); //ovaj korak je potreban kako bi se izazvala poruka na input polju broj stanova
+	    boolean isEnabled = registrujte.isEnabled();
+	    if(isEnabled=true){
+	    	this.registrujte.click();
+	    }else{
+	    	System.out.println("Na dugme ne moze da se klikne!");
+	    }
 			
-			this.Email().clear();
-			this.Lozinka().clear();
-			this.Ime().clear();
-			this.Prezime().clear();
-			this.Email().sendKeys(email);
-			this.Lozinka().sendKeys(lozinka);
-			this.Ime().sendKeys(ime);
-			this.Prezime().sendKeys(prezime);			
+	}
+		
+	public void unosenjeVrednostiStanara(String email,String lozinka,String ime,String prezime) {		
+		this.Email().clear();
+		this.Lozinka().clear();
+		this.Ime().clear();
+		this.Prezime().clear();
+		this.Email().sendKeys(email);
+		this.Lozinka().sendKeys(lozinka);
+		this.Ime().sendKeys(ime);
+		this.Prezime().sendKeys(prezime);			
 		}
 		
-		 @FindBy(xpath = "//*[@id=\"toast-container\"]/div/div")
+	@FindBy(xpath = "//*[@id=\"toast-container\"]/div/div")
 		 
-		 private WebElement uspesnoRegStanar;
+	private WebElement uspesnoRegStanar;
 		 
-			public  WebElement UspesnoRegStanarMsg() {
-				  return wait.until(ExpectedConditions.visibilityOf(uspesnoRegStanar));
+	public  WebElement UspesnoRegStanarMsg() {
+		return wait.until(ExpectedConditions.visibilityOf(uspesnoRegStanar));
 			}
-		public  String getUspesnoRegStanarMsg() {
-				  
-			return UspesnoRegStanarMsg().getText().trim();
+	
+	public  String getUspesnoRegStanarMsg() {		  
+		return UspesnoRegStanarMsg().getText().trim();
 			}
 			
-		public String getEmailInputValue(){
-		    	String vrednost = this.Email().getAttribute("value");
-		    	return vrednost;
+	public String getEmailInputValue(){
+	   	String vrednost = this.Email().getAttribute("value");
+	   	return vrednost;
 		    }
 		    
-		public String getLozinkaInputValue(){
-		    	String vrednost = this.Lozinka().getAttribute("value");
-		    	return vrednost;
+	public String getLozinkaInputValue(){
+	   	String vrednost = this.Lozinka().getAttribute("value");
+	   	return vrednost;
 		    }
 		    
-		public String getImeInputValue(){
-		    	String vrednost = this.Ime().getAttribute("value");
-		    	return vrednost;
+	public String getImeInputValue(){
+	   	String vrednost = this.Ime().getAttribute("value");
+	   	return vrednost;
 		    }
 		    
-		public String getPrezimeInputValue(){
-		    	String vrednost = this.Prezime().getAttribute("value");
-		    	return vrednost;
+	public String getPrezimeInputValue(){
+	   	String vrednost = this.Prezime().getAttribute("value");
+	   	return vrednost;
 		    }
 }

@@ -33,27 +33,39 @@ public class StanTest extends BaseClass {
 	public void SetUp() throws IOException, InterruptedException {
 	
 		driver = initDriver();
+		//odlazimo na stranicu za logovanje
 		driver.get(props.getProperty("URL"));
 		driver.manage().window().maximize();
+		//instanciranje objekata
 		zgradaKucniSavetPageObj = new ZgradaKucniSavetPageObj(driver);
 		pregled = new Pregled(driver);
 		stanPageObj = new StanPageObj(driver);
 		zgradePageObj = new ZgradePageObj(driver);
 		loginPageObj = new LoginPageObj(driver);
 		adminPocetnaPageObj = new AdminPocetnaPageObj(driver);
+		//logujemo se kao admin
 		loginPageObj.logIn(props.getProperty("email"), props.getProperty("password"));
+		//navigujemo na stranicu stana
 		driver.get("http://localhost:8080/stan/1");
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 	}
 	//DA BI OVAJ TEST FUNKCIONISAO POTREBNO JE DA SU SVI VLASNICI I STANRI UKLONJENI IZ LISTE STANARA I VLASNIKA
 	@Test(priority = 1)
 	public void postavljanjeVlasnikaTest() throws InterruptedException {
+		
+		//klikcemo na dugme za postavljanje vlasnika stana
+	    //ocekujemo poruku o uspesnom dodavanju vlasnika
+		
 		stanPageObj.postaviZaVlasnikaDugme.get(0).click();
 		assertEquals(stanPageObj.getVlasnikPostavljenSuccesMsg(), "Uspesno ste postavili vlasnika!");
 	}
 	
 	@Test(priority = 2)
 	public void uklanjanjeVlasnikaTest() throws InterruptedException {
+		
+		//klikcemo na dugme za brisanje vlasnika stana
+	    //ocekujemo poruku o uspesnom brisanju vlasnika
+		
 		stanPageObj.ukloniStanaraDugme.get(0).click();
 		
 		assertEquals(stanPageObj.getVlasnikUklonjenSuccesMsg(), "Uspesno ste uklonili vlasnika!");
@@ -61,12 +73,19 @@ public class StanTest extends BaseClass {
 	
 	@Test(priority = 3)
 	public void dodavanjeStanaraTest() throws InterruptedException {
+		
+		//klikcemo na dugme za dodavanje stanara
+	    //ocekujemo poruku o uspesnom dodavanja stanara
+		
 		stanPageObj.dodajUStanareDugme.get(0).click();
 		assertEquals(stanPageObj.getStanarDodatSuccesMsg(), "Uspesno ste dodali stanara!");
 	}
 	
 	@Test(priority = 5)
 	public void uklanjanjeStanaraTest() throws InterruptedException {
+		
+		//klikcemo na dugme za uklanjanje stanara
+	    //ocekujemo poruku o uspesnom uklanjanju stanara
 		
 		stanPageObj.UkloniStanaraDugme().click();
 	
@@ -75,6 +94,9 @@ public class StanTest extends BaseClass {
 	
 	@Test(priority = 4)
 	public void postaviZaPredsednika() throws InterruptedException {
+		
+		//klikcemo na dugme za dodavanje predsednika zgrade
+	    //ocekujemo poruku o uspesnom dodavanja predsednika
 	
 		stanPageObj.postaviZaPredsednikaDugme.get(0).click();
 		assertEquals(stanPageObj.getPredsednikDodatSuccesMsg(), "Uspesno ste postavili predsednika zgrade!");

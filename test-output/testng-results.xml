@@ -1,65 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="1" total="5" passed="4">
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="16953" started-at="2019-12-02T21:45:36Z" finished-at="2019-12-02T21:45:53Z">
+  <suite name="Default suite" duration-ms="18837" started-at="2019-12-02T23:24:18Z" finished-at="2019-12-02T23:24:37Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="16953" started-at="2019-12-02T21:45:36Z" finished-at="2019-12-02T21:45:53Z">
-      <class name="testCases.PregledStanaraTest">
-        <test-method status="PASS" signature="SetUp()[pri:0, instance:testCases.PregledStanaraTest@1a968a59]" name="SetUp" is-config="true" duration-ms="13992" started-at="2019-12-02T21:45:36Z" finished-at="2019-12-02T21:45:50Z">
+    <test name="Default test" duration-ms="18837" started-at="2019-12-02T23:24:18Z" finished-at="2019-12-02T23:24:37Z">
+      <class name="testCases.PregledZgradaTest">
+        <test-method status="PASS" signature="SetUp()[pri:0, instance:testCases.PregledZgradaTest@42e26948]" name="SetUp" is-config="true" duration-ms="15666" started-at="2019-12-02T23:24:18Z" finished-at="2019-12-02T23:24:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SetUp -->
-        <test-method status="PASS" signature="PozitivanTestPretrageStanara1(java.lang.String)[pri:0, instance:testCases.PregledStanaraTest@1a968a59]" name="PozitivanTestPretrageStanara1" duration-ms="748" started-at="2019-12-02T21:45:50Z" data-provider="dataprovider" finished-at="2019-12-02T21:45:51Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Gospodin Predsednik]]>
-              </value>
-            </param>
-          </params>
+        <test-method status="PASS" signature="PozitivanTestPretrageZgrade1()[pri:0, instance:testCases.PregledZgradaTest@42e26948]" name="PozitivanTestPretrageZgrade1" duration-ms="912" started-at="2019-12-02T23:24:34Z" finished-at="2019-12-02T23:24:35Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- PozitivanTestPretrageStanara1 -->
-        <test-method status="PASS" signature="PozitivanTestPretrageStanara1(java.lang.String)[pri:0, instance:testCases.PregledStanaraTest@1a968a59]" name="PozitivanTestPretrageStanara1" duration-ms="708" started-at="2019-12-02T21:45:51Z" data-provider="dataprovider" finished-at="2019-12-02T21:45:52Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[predSkup@gmail.com]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- PozitivanTestPretrageZgrade1 -->
+        <test-method status="PASS" signature="PozitivanTestPretrageZgrade2()[pri:0, instance:testCases.PregledZgradaTest@42e26948]" name="PozitivanTestPretrageZgrade2" duration-ms="659" started-at="2019-12-02T23:24:35Z" finished-at="2019-12-02T23:24:35Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- PozitivanTestPretrageStanara1 -->
-        <test-method status="PASS" signature="PozitivanTestPretrageStanara1(java.lang.String)[pri:0, instance:testCases.PregledStanaraTest@1a968a59]" name="PozitivanTestPretrageStanara1" duration-ms="516" started-at="2019-12-02T21:45:52Z" data-provider="dataprovider" finished-at="2019-12-02T21:45:52Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Gospodin]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- PozitivanTestPretrageZgrade2 -->
+        <test-method status="PASS" signature="PozitivanTestPretrageZgrade3()[pri:0, instance:testCases.PregledZgradaTest@42e26948]" name="PozitivanTestPretrageZgrade3" duration-ms="615" started-at="2019-12-02T23:24:35Z" finished-at="2019-12-02T23:24:36Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- PozitivanTestPretrageStanara1 -->
-        <test-method status="PASS" signature="PozitivanTestPretrageStanara1(java.lang.String)[pri:0, instance:testCases.PregledStanaraTest@1a968a59]" name="PozitivanTestPretrageStanara1" duration-ms="647" started-at="2019-12-02T21:45:52Z" data-provider="dataprovider" finished-at="2019-12-02T21:45:53Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Predsednik]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- PozitivanTestPretrageZgrade3 -->
+        <test-method status="PASS" signature="PozitivanTestPretrageZgrade4()[pri:0, instance:testCases.PregledZgradaTest@42e26948]" name="PozitivanTestPretrageZgrade4" duration-ms="715" started-at="2019-12-02T23:24:36Z" finished-at="2019-12-02T23:24:37Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- PozitivanTestPretrageStanara1 -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:testCases.PregledStanaraTest@1a968a59]" name="tearDown" is-config="true" duration-ms="302" started-at="2019-12-02T21:45:53Z" finished-at="2019-12-02T21:45:53Z">
+        </test-method> <!-- PozitivanTestPretrageZgrade4 -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:testCases.PregledZgradaTest@42e26948]" name="tearDown" is-config="true" duration-ms="231" started-at="2019-12-02T23:24:37Z" finished-at="2019-12-02T23:24:37Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- testCases.PregledStanaraTest -->
+      </class> <!-- testCases.PregledZgradaTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

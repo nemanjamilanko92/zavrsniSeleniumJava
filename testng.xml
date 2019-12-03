@@ -1,25 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <listeners>
+<listeners>
+
  <listener class-name="setup.ExtentReporterNG"/>
- <listener class-name="setup.ScreenshotListeners"/>
+<listener class-name="setup.ScreenshotListeners"/>
  </listeners>	
-
-
-
-  <test thread-count="5" name="Test">
-
+  <!-- <test thread-count="5" name="Test">
     <classes>
-      <class name="testCases.test1"/>
-     <class name="testCases.test1"/>
-    </classes>
-  </test> <!-- Test -->
-    <test thread-count="5" name="DodavanjeZgradaTest">
+      <class name="testCases.PromenaLozinkeTest"/>
+       </classes>
+       </test> -->
+      <test name="Test0">
+       <classes>
+      <class name="testCases.PregledZgradaTest"/>
+          </classes>
+           </test> 
+              <test name="Test1">
+              <classes>
 
-    <classes>
-     
-     <class name="testCases.DodavanjeZgradaTest"/>
+      <class name="testCases.StanTest"/>
+		    </classes>
+		    
+		     </test> 
+		        <test name="Test2">
+		        <classes>
+      <class name="testCases.RegistracijaStanaraTest"/>
+         </classes>
+         </test> 
+            <test name="Test3">
+             <classes>
+      <class name="testCases.DodavanjeZgradaTest"/>
+      	    </classes>
+      	    </test> 
+      	       <test name="Test4">
+      	    <classes>
+      
+      <class name="testCases.LoginTest"/>
+				    </classes>   
+				    </test>   
+				       <test name="Test5">
+      		    <classes>
+      <class name="testCases.TackeDnevnogRedaTest"/>
+      		    </classes>
+      		    </test> 
+      		       <test name="Test6">
+      			    <classes>
+      <class name="testCases.PregledStanaraTest"/>
+      			    </classes>
+      			    </test> 
+      			       <test name="Test7">
+   				    <classes>
+      <class name="testCases.obavestenjeTest"/>
+      				    </classes>
+      				    </test> 
+  		    	   <test name="Test8">
+  		    <classes>
+      <class name="testCases.KvaroviTest"/>
     </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+  </test> 
+</suite> 

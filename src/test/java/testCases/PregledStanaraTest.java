@@ -27,26 +27,35 @@ public class PregledStanaraTest extends BaseClass{
 	public void SetUp() throws IOException, InterruptedException {
 	
 		driver = initDriver();
+		 //odlazimo na stranicu za logovanje
 		driver.get(props.getProperty("URL"));
 		driver.manage().window().maximize();
+		//instanciranje objekata
 		stanariRegistracijaPageObj = new StanariRegistracijaPageObj(driver);
 		loginPageObj = new LoginPageObj(driver);
 		adminPocetnaPageObj = new AdminPocetnaPageObj(driver);
 		pregledStanaraPageObj = new PregledStanaraPageObj(driver);
+		 //logujemo se kao admin
 		loginPageObj.logIn(props.getProperty("email"), props.getProperty("password"));
+		//navigujemo na stranicu pregleda stanara
 		adminPocetnaPageObj.Stanari().click();
 		stanariRegistracijaPageObj.Pregled().click();
 	}
 	
 	@Test(dataProvider = "dataprovider")
 	public void PozitivanTestPretrageStanara1(String ime) {
-		
+		//u polje za pretragu stanara unosimo ime i prezime stanara
+	    //ocekujemo da ce se stanar pojaviti u filtriranoj listi
 		pregledStanaraPageObj.UnosPretrage(ime);
 		assertTrue(pregledStanaraPageObj.proveraStanara("Gospodin", "Predsednik", "(predSkup@gmail.com)"));
 	}
 	
 	@Test
 	public void PozitivanTestPretrageStanara5() {
+		
+		//u polje za pretragu stanara unosimo nepostojeceg stanara (nasumicni text)
+	    //ocekujemo poruku da ni jedan stanar nije pronadjen
+		
 		pregledStanaraPageObj.UnosPretrage("AAAAAAAAA");
 		assertEquals(pregledStanaraPageObj.ErrMessZaNepostojecegStanara().getText().trim(), "Nijedan stanar sa trazenim kriterijumom nije prondajen!");
 	}
