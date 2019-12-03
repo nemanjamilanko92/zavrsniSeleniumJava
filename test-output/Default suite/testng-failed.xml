@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.PregledZgradaTest">
+      <class name="testCases.TackeDnevnogRedaTest">
         <methods>
-          <include name="PozitivanTestPretrageZgrade5"/>
           <include name="SetUp"/>
+          <include name="izmeniTackuDnevnogRedaPozitivan"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- testCases.PregledZgradaTest -->
+      </class> <!-- testCases.TackeDnevnogRedaTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

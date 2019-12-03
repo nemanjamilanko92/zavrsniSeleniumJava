@@ -21,7 +21,6 @@ public class ZgradePageObj {
 		PageFactory.initElements(driver, this);
 	
 	}
-	
 
     @FindBy(id = "broj")
     
@@ -91,35 +90,17 @@ public class ZgradePageObj {
     
     private WebElement errMessMesto;
     
-    public WebElement ErrMessMesto(){
-    	return wait.until(ExpectedConditions.visibilityOf(errMessMesto));
-    }
-    
     @FindBy( xpath = "//div[2]//div[1]//div[1]")
     
     private WebElement errMessUlica;
-    
-    public WebElement ErrMessUlica(){
-    	return wait.until(ExpectedConditions.visibilityOf(errMessUlica));
-    }
-    
+ 
     @FindBy( xpath = "//div[3]//div[1]//div[1]")
     
     private WebElement errMessBroj;
     
-    public WebElement ErrMessBroj(){
-    	
-    	return wait.until(ExpectedConditions.visibilityOf(errMessBroj));
-    }
-    
     @FindBy( xpath = "//div[4]//div[1]//div[1]") //vraca isti path i za nulu
     
     private WebElement errMessBrojStanova;
-    
-    public WebElement ErrMessBrojStanova(){
-    
-    	return wait.until(ExpectedConditions.visibilityOf(errMessBrojStanova));
-    }
     
     @FindBy( xpath = "/html/body/app-root/app-zgrade/div/app-dodaj-zgradu/div/form/fieldset/div[3]/div/div")
     
@@ -128,7 +109,6 @@ public class ZgradePageObj {
     public WebElement ErrMessBrojNula(){
     	return wait.until(ExpectedConditions.visibilityOf(errMessBrojNula));
     }
-    
     
     public void dodavanjeZgrade(String mesto, String ulica, String broj, String brojStanova){
     	this.Mesto().clear();
@@ -146,8 +126,6 @@ public class ZgradePageObj {
     	}else{
     		System.out.println("Na dugme ne moze da se klikne!");
     	}
-    		
-    	
     }
     
     public void unosenjeVrednostiZgrade(String mesto, String ulica, String broj, String brojStanova){
@@ -162,29 +140,23 @@ public class ZgradePageObj {
     }
     
     public String getErrMessMesto() {
-		return this.ErrMessMesto().getText();
+    	wait.until(ExpectedConditions.visibilityOf(errMessMesto));
+		return this.errMessMesto.getText();
 	}
     
     public String getErrMessUlica() {
-		return this.ErrMessUlica().getText();
+    	wait.until(ExpectedConditions.visibilityOf(errMessUlica));
+		return this.errMessUlica.getText();
 	}
     
     public String getErrMessBroj() {
-		return this.ErrMessBroj().getText();
+    	wait.until(ExpectedConditions.visibilityOf(errMessBroj));
+		return this.errMessBroj.getText();
 	}
     
     public String getErrMessBrojStanova() {
-    	WebElement text =  driver.findElement(By.xpath("//div[4]//div[1]//div[1]"));
-    	try {
-    			this.ErrMessBrojStanova().getText();
-    	}
-  
-    	catch (StaleElementReferenceException e) {
-    		 text =  driver.findElement(By.xpath("//div[4]//div[1]//div[1]"));
-    		
-    		
-		}
-    	return text.getText();
+    	wait.until(ExpectedConditions.visibilityOf(errMessBrojStanova));
+    		return	this.errMessBrojStanova.getText();
 	} 
     
     public String getErrMessBrojNula() {
@@ -192,7 +164,6 @@ public class ZgradePageObj {
 	}
     
     @FindBy(xpath = "//*[@id=\"toast-container\"]/div/div")
-    
     
     private WebElement successMess;
     
@@ -228,11 +199,10 @@ public class ZgradePageObj {
     
     private WebElement sameAddressMess;
     
-    public WebElement ZgradaSaIstomAdresomMessage(){
-    	return wait.until(ExpectedConditions.visibilityOf(sameAddressMess));
-    }
+   
     
     public String getZgradaSaIstomAdresomMessage() {
-		return this.ZgradaSaIstomAdresomMessage().getText().trim();
+    	wait.until(ExpectedConditions.visibilityOf(sameAddressMess));
+		return this.sameAddressMess.getText().trim();
 	}
 }

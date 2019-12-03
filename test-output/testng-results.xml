@@ -1,37 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="18837" started-at="2019-12-02T23:24:18Z" finished-at="2019-12-02T23:24:37Z">
+  <suite name="Default suite" duration-ms="22590" started-at="2019-12-03T21:59:33Z" finished-at="2019-12-03T21:59:55Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="18837" started-at="2019-12-02T23:24:18Z" finished-at="2019-12-02T23:24:37Z">
-      <class name="testCases.PregledZgradaTest">
-        <test-method status="PASS" signature="SetUp()[pri:0, instance:testCases.PregledZgradaTest@42e26948]" name="SetUp" is-config="true" duration-ms="15666" started-at="2019-12-02T23:24:18Z" finished-at="2019-12-02T23:24:34Z">
+    <test name="Default test" duration-ms="22590" started-at="2019-12-03T21:59:33Z" finished-at="2019-12-03T21:59:55Z">
+      <class name="testCases.TackeDnevnogRedaTest">
+        <test-method status="PASS" signature="SetUp()[pri:0, instance:testCases.TackeDnevnogRedaTest@42e26948]" name="SetUp" is-config="true" duration-ms="16295" started-at="2019-12-03T21:59:33Z" finished-at="2019-12-03T21:59:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SetUp -->
-        <test-method status="PASS" signature="PozitivanTestPretrageZgrade1()[pri:0, instance:testCases.PregledZgradaTest@42e26948]" name="PozitivanTestPretrageZgrade1" duration-ms="912" started-at="2019-12-02T23:24:34Z" finished-at="2019-12-02T23:24:35Z">
+        <test-method status="PASS" signature="dodajTackuDnevnogRedaPozitivan()[pri:1, instance:testCases.TackeDnevnogRedaTest@42e26948]" name="dodajTackuDnevnogRedaPozitivan" duration-ms="1797" started-at="2019-12-03T21:59:49Z" finished-at="2019-12-03T21:59:51Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- PozitivanTestPretrageZgrade1 -->
-        <test-method status="PASS" signature="PozitivanTestPretrageZgrade2()[pri:0, instance:testCases.PregledZgradaTest@42e26948]" name="PozitivanTestPretrageZgrade2" duration-ms="659" started-at="2019-12-02T23:24:35Z" finished-at="2019-12-02T23:24:35Z">
+        </test-method> <!-- dodajTackuDnevnogRedaPozitivan -->
+        <test-method status="PASS" signature="dodajTackuDnevnogRedaNegativan()[pri:2, instance:testCases.TackeDnevnogRedaTest@42e26948]" name="dodajTackuDnevnogRedaNegativan" duration-ms="703" started-at="2019-12-03T21:59:51Z" finished-at="2019-12-03T21:59:52Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- PozitivanTestPretrageZgrade2 -->
-        <test-method status="PASS" signature="PozitivanTestPretrageZgrade3()[pri:0, instance:testCases.PregledZgradaTest@42e26948]" name="PozitivanTestPretrageZgrade3" duration-ms="615" started-at="2019-12-02T23:24:35Z" finished-at="2019-12-02T23:24:36Z">
+        </test-method> <!-- dodajTackuDnevnogRedaNegativan -->
+        <test-method status="PASS" signature="izmeniTackuDnevnogRedaPozitivan()[pri:3, instance:testCases.TackeDnevnogRedaTest@42e26948]" name="izmeniTackuDnevnogRedaPozitivan" duration-ms="1227" started-at="2019-12-03T21:59:52Z" finished-at="2019-12-03T21:59:53Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- PozitivanTestPretrageZgrade3 -->
-        <test-method status="PASS" signature="PozitivanTestPretrageZgrade4()[pri:0, instance:testCases.PregledZgradaTest@42e26948]" name="PozitivanTestPretrageZgrade4" duration-ms="715" started-at="2019-12-02T23:24:36Z" finished-at="2019-12-02T23:24:37Z">
+        </test-method> <!-- izmeniTackuDnevnogRedaPozitivan -->
+        <test-method status="PASS" signature="obrisiObavestenjePozitivan()[pri:4, instance:testCases.TackeDnevnogRedaTest@42e26948]" name="obrisiObavestenjePozitivan" duration-ms="350" started-at="2019-12-03T21:59:53Z" finished-at="2019-12-03T21:59:53Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- PozitivanTestPretrageZgrade4 -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:testCases.PregledZgradaTest@42e26948]" name="tearDown" is-config="true" duration-ms="231" started-at="2019-12-02T23:24:37Z" finished-at="2019-12-02T23:24:37Z">
+        </test-method> <!-- obrisiObavestenjePozitivan -->
+        <test-method status="PASS" signature="dodavanjePredlogaTackeUSkupstinuPozitivan()[pri:5, instance:testCases.TackeDnevnogRedaTest@42e26948]" name="dodavanjePredlogaTackeUSkupstinuPozitivan" duration-ms="675" started-at="2019-12-03T21:59:53Z" finished-at="2019-12-03T21:59:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dodavanjePredlogaTackeUSkupstinuPozitivan -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:testCases.TackeDnevnogRedaTest@42e26948]" name="tearDown" is-config="true" duration-ms="1486" started-at="2019-12-03T21:59:54Z" finished-at="2019-12-03T21:59:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- testCases.PregledZgradaTest -->
+      </class> <!-- testCases.TackeDnevnogRedaTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -52,10 +52,7 @@ public class LoginPageObj {
 
 	private WebElement errorMsg;
 	
-	public WebElement ErrorMsg() {
-		
-		return wait.until(ExpectedConditions.visibilityOf(errorMsg));
-	};
+
 	public void logIn(String email,String lozinka)   {
 		this.Email().clear();
 		this.Lozinka().clear();
@@ -66,6 +63,7 @@ public class LoginPageObj {
 	}
 	
 	public String getErrMsgText() {
-		return this.ErrorMsg().getText();
+		wait.until(ExpectedConditions.visibilityOf(errorMsg));
+		return this.errorMsg.getText();
 	}
 }

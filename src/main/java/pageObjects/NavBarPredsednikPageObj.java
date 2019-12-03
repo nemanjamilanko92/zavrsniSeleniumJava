@@ -51,13 +51,11 @@ public class NavBarPredsednikPageObj {
 	
 	private WebElement emailText;
 	
-	public WebElement EmailText() {
-		return wait.until(ExpectedConditions.elementToBeClickable(emailText));
-		
-	}
+	
 	
 	public String getEmailText() {
-		return EmailText().getText().trim();
+		wait.until(ExpectedConditions.elementToBeClickable(emailText));
+		return emailText.getText().trim();
 	}
 
 	@FindBy(xpath = "//button[@class='btn btn-secondary']")

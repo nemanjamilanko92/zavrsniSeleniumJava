@@ -112,14 +112,12 @@ public class ZgradaKucniSavetPageObj {
 	@FindBy(xpath = "//*[@id=\"toast-container\"]/div/div")
 	 
 	private WebElement alertObavestenja;
-	 
-	public  WebElement alertObavestenja() {
-		return wait.until(ExpectedConditions.visibilityOf(alertObavestenja));
-	}
+	
 		
 	public  String alertObavestenjaMsg() {
-			  
-		return alertObavestenja().getText().trim();
+		wait.until(ExpectedConditions.visibilityOf(alertObavestenja));
+
+		return alertObavestenja.getText().trim();
 		}
 		
 		@FindBy(id = "tekstObavestenja")
@@ -242,24 +240,20 @@ public class ZgradaKucniSavetPageObj {
 	
 		private WebElement alertMsg;
 		
-		public WebElement AlertMsg() {
-			return wait.until(ExpectedConditions.visibilityOf(alertMsg));
-		}
-		
 		public String getAlertMsgText() {
-			return AlertMsg().getText().trim();
+			wait.until(ExpectedConditions.visibilityOf(alertMsg));
+			return alertMsg.getText().trim();
 		}
 		
 		@FindBy(xpath = "//div[@class='container']//div[1]//div[1]//table[1]//tbody[1]//tr[2]//td[1]//span[1]")
 	
 		private WebElement novoDodatoOvacestenje;
 		
-		public WebElement NovoDodatoOvacestenje() {
-			return wait.until(ExpectedConditions.visibilityOf(novoDodatoOvacestenje));
-		}
+	
 		
 		public String getNovoDodatoOvacestenje() {
-			return NovoDodatoOvacestenje().getText().trim();
+			wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(novoDodatoOvacestenje)));
+			return novoDodatoOvacestenje.getText().trim();
 		}
 		
 		public void izmeniObavestenje(String text) {

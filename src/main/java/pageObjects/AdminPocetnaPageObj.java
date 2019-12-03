@@ -87,11 +87,9 @@ public class AdminPocetnaPageObj {
 	
 	private WebElement adminEmail;
 	
-	public WebElement AdminEmail() {
-		return wait.until(ExpectedConditions.visibilityOf(adminEmail));
-	}
 	
 	public String getAdminEmailText() {
-		return AdminEmail().getText().trim();
+		wait.until(ExpectedConditions.visibilityOf(adminEmail));
+		return adminEmail.getText().trim();
 	}
 }

@@ -105,69 +105,54 @@ public class StanPageObj {
     
     private WebElement vlasnikPostavljenSuccesMsg;
     
-    public WebElement VlasnikPostavljenSuccesMsg() {
-		
-		return wait.until(ExpectedConditions.visibilityOf(vlasnikPostavljenSuccesMsg));
-	}
+   
     
     public String getVlasnikPostavljenSuccesMsg() {
-    	
-    	return VlasnikPostavljenSuccesMsg().getText().trim();
+    	wait.until(ExpectedConditions.visibilityOf(vlasnikPostavljenSuccesMsg));
+    	return vlasnikPostavljenSuccesMsg.getText().trim();
     }
     
     @FindBy(xpath = "//div[contains(text(),'Uspesno ste uklonili vlasnika!')]")
     
     private WebElement vlasnikUklonjenSuccesMsg;
     
-    public WebElement VlasnikUklonjenSuccesMsg() {
-		
-		return wait.until(ExpectedConditions.visibilityOf(vlasnikUklonjenSuccesMsg));
-	}
+  
     
     public String getVlasnikUklonjenSuccesMsg() {
-    	
-    	return VlasnikUklonjenSuccesMsg().getText().trim();
+    	wait.until(ExpectedConditions.visibilityOf(vlasnikUklonjenSuccesMsg));
+    	return vlasnikUklonjenSuccesMsg.getText().trim();
     }
     
     @FindBy(xpath = "//div[contains(text(),'Uspesno ste uklonili stanara!')]")
     
     private WebElement stanarUklonjenSuccesMsg;
     
-    public WebElement StanarUklonjenSuccesMsg() {
-		
-		return wait.until(ExpectedConditions.visibilityOf(stanarUklonjenSuccesMsg));
-	}
+  
     
     public String getStanarUklonjenSuccesMsg() {
-    	
-    	return StanarUklonjenSuccesMsg().getText().trim();
+    	 wait.until(ExpectedConditions.visibilityOf(stanarUklonjenSuccesMsg));
+    	return stanarUklonjenSuccesMsg.getText().trim();
     }
     
     @FindBy(xpath = "//div[contains(text(),'Uspesno ste dodali stanara!')]")
     
     private WebElement stanarDodatSuccesMsg;
     
-    public WebElement StanarDodatSuccesMsg() {
-		
-		return wait.until(ExpectedConditions.visibilityOf(stanarDodatSuccesMsg));
-	}
+   
     
     public String getStanarDodatSuccesMsg() {
-    	
-    	return StanarDodatSuccesMsg().getText().trim();
+    	wait.until(ExpectedConditions.visibilityOf(stanarDodatSuccesMsg));
+    	return stanarDodatSuccesMsg.getText().trim();
     }
     
     @FindBy(xpath = "//div[contains(text(),'Uspesno ste postavili predsednika zgrade!')]")
     
     private WebElement predsednikDodatSuccesMsg;
     
-    public WebElement PredsednikDodatSuccesMsg() {
-		
-		return wait.until(ExpectedConditions.visibilityOf(predsednikDodatSuccesMsg));
-	}
+  
     
     public String getPredsednikDodatSuccesMsg() {
-    	
-    	return PredsednikDodatSuccesMsg().getText().trim();
+    	wait.until(ExpectedConditions.visibilityOf(predsednikDodatSuccesMsg));
+    	return predsednikDodatSuccesMsg.getText().trim();
     }
 }

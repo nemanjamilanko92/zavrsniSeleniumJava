@@ -61,58 +61,44 @@ public class PromenaLozinkePageObj {
     
     private WebElement alertMsg;
     
-    public WebElement AlertMsg() {
-		
-		return wait.until(ExpectedConditions.visibilityOf(alertMsg));
-	}
-    
+  
     
     public String getAlertMsg() {
-		
-		return AlertMsg().getText().trim();
+    	wait.until(ExpectedConditions.visibilityOf(alertMsg));
+		return alertMsg.getText().trim();
 	}
     
     @FindBy(xpath  = "/html/body/app-root/app-promena-lozinke/div/form/fieldset/div[1]/div")
     
     private WebElement staraLozinkaErrMsg;
     
-    public WebElement staraLozinkaErrMsg() {
-    	
-    	return  wait.until(ExpectedConditions.visibilityOf(staraLozinkaErrMsg));
    
-	}
     
     public String getstaraLozinkaErrMsg() {
-		
-		return staraLozinkaErrMsg().getText().trim();
+    	wait.until(ExpectedConditions.visibilityOf(staraLozinkaErrMsg));
+		return staraLozinkaErrMsg.getText().trim();
 	}
     
     @FindBy(xpath  = "/html/body/app-root/app-promena-lozinke/div/form/fieldset/div[2]/div[1]/div")
     
     private WebElement novaLozinkaErrMsg;
     
-    public WebElement novaLozinkaErrMsg() {
-		
-		return wait.until(ExpectedConditions.visibilityOf(novaLozinkaErrMsg));
-	}
+   
     
     public String getnovaLozinkaErrMsg() {
-		
-		return novaLozinkaErrMsg().getText().trim();
+    	wait.until(ExpectedConditions.visibilityOf(novaLozinkaErrMsg));
+		return novaLozinkaErrMsg.getText().trim();
 	}
     
     @FindBy(xpath  = "/html/body/app-root/app-promena-lozinke/div/form/fieldset/div[2]/div[2]/div")
     
     private WebElement potvrdaNoveLozinkaErrMsg;
     
-    public WebElement potvrdaNoveLozinkaErrMsg() {
-		
-		return wait.until(ExpectedConditions.visibilityOf(potvrdaNoveLozinkaErrMsg));
-	}
+   
         
     public String getpotvrdaNoveLozinkaErrMsg() {
-		
-		return potvrdaNoveLozinkaErrMsg().getText();
+    	 wait.until(ExpectedConditions.visibilityOf(potvrdaNoveLozinkaErrMsg));
+		return potvrdaNoveLozinkaErrMsg.getText();
 	}
     
     public void unosLozinke(String staraLozinka,String novaLozinka,String potvrdaNoveLozinke) {
