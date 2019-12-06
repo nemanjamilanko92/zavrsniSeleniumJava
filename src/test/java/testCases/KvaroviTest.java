@@ -29,7 +29,7 @@ public class KvaroviTest extends BaseClass{
 		KvaroviPageObj kvaroviPageObj;
 		ZgradaKucniSavetPageObj ZgradaKucniSavetPageObj;
 		//OVAKAV BEFORE METHOD JE KORISCEN ZBOG PROBLEMA SA STALE ELEMENTIMA
-		@BeforeMethod
+		@BeforeClass
 		public void SetUp() throws IOException, InterruptedException {
 			driver = initDriver();
 			driver.get(props.getProperty("URL"));
@@ -50,7 +50,7 @@ public class KvaroviTest extends BaseClass{
 		
 			//unosimo kvar sa ocekivanim podacima i unosimo odgovorno lice
 		    //ocekujemo poruku o uspesnom dodavanju
-			
+			ZgradaKucniSavetPageObj.Kvarovi().click();
 			kvaroviPageObj.DodajKvar("a", "a", 0);
 			assertEquals(kvaroviPageObj.alertObavestenjaMsg(), "Kvar uspesno dodat");
 		}
@@ -59,7 +59,7 @@ public class KvaroviTest extends BaseClass{
 		
 			//unosimo kvar sa ocekivanim podacima, ali izostavljamo odgovorno lice
 		    //ocekujemo poruku o uspesnom dodavanju
-			
+			ZgradaKucniSavetPageObj.Kvarovi().click();
 			kvaroviPageObj.DodajKvarBezOdgovornogLica("a", "a", 0);
 			assertEquals(kvaroviPageObj.alertObavestenjaMsg(), "Kvar uspesno dodat");
 		}
@@ -69,7 +69,7 @@ public class KvaroviTest extends BaseClass{
 			
 			//podatke za kreiranje kvara ostavljamo praznim
 		    //ocekujemo poruku greske za unos kao i da je dugme za potvrdu kreiranja kvara onemoguceno
-			
+			ZgradaKucniSavetPageObj.Kvarovi().click();
 			kvaroviPageObj.DodajKvar("", "", 0);
 			assertEquals(kvaroviPageObj.getMestoErrMsg(), "Ovo polje ne sme biti prazno!");	
 			assertEquals(kvaroviPageObj.getOpisErrMsg(), "Ovo polje ne sme biti prazno!");	
@@ -79,7 +79,7 @@ public class KvaroviTest extends BaseClass{
 			
 			//unosimo podatke za kreiranje kvara gde opis kvara otavljamo prazan
 		    //ocekujemo poruku greske za unos kao i da je dugme za potvrdu kreiranja kvara onemoguceno
-			
+			ZgradaKucniSavetPageObj.Kvarovi().click();
 			kvaroviPageObj.DodajKvar("a", "", 0);
 			assertFalse(kvaroviPageObj.submit.isEnabled());
 			assertEquals(kvaroviPageObj.getOpisErrMsg(), "Ovo polje ne sme biti prazno!");	
@@ -89,7 +89,7 @@ public class KvaroviTest extends BaseClass{
 			
 			//unosimo podatke za kreiranje kvara gde mesto kvara otavljamo prazan
 		    //ocekujemo poruku greske za unos kao i da je dugme za potvrdu kreiranja kvara onemoguceno
-			
+			ZgradaKucniSavetPageObj.Kvarovi().click();
 			kvaroviPageObj.DodajKvar("", "a", 0);
 			assertEquals(kvaroviPageObj.getMestoErrMsg(), "Ovo polje ne sme biti prazno!");	
 			assertFalse(kvaroviPageObj.submit.isEnabled());
@@ -99,12 +99,13 @@ public class KvaroviTest extends BaseClass{
 			
 			//klickemo na dugme za brisanje kvara
 		    //ocekujemo poruku o uspesnom brisanju kvara
-			 
+			ZgradaKucniSavetPageObj.Kvarovi().click();
+			 driver.navigate().refresh();
 			kvaroviPageObj.brisi.get(0).click();
 			assertEquals(kvaroviPageObj.alertObavestenjaMsg(), "Uspesno izbrisan kvar");	
 		
 		}
-		@AfterMethod
+		@AfterClass
 		public void tearDown() throws InterruptedException {
 			driver.quit();
 			driver=null;

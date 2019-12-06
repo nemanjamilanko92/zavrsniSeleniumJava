@@ -5,18 +5,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPageObj {
 	
 	private WebDriver driver;
-	private WebDriverWait wait;
 	
 	public LoginPageObj(WebDriver driver) {
 		this.driver=driver;
-		wait = new WebDriverWait(driver,5);
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
 	
 	}
 	
@@ -24,29 +23,13 @@ public class LoginPageObj {
 	
 	private WebElement email;
 	
-	public WebElement Email() {
-		
-		return wait.until(ExpectedConditions.visibilityOf(email));
-	};
-	
-	
 	@FindBy(id = "lozinka")
 	
 	private WebElement lozinka;
 	
-	public WebElement Lozinka() {
-		
-		return wait.until(ExpectedConditions.visibilityOf(lozinka));
-	};
-	
 	@FindBy(xpath = "//button[@class='btn btn-primary']")
 	
 	private WebElement ulogujSeBtn;
-	
-	public WebElement UlogujSeBtn() {
-		
-		return wait.until(ExpectedConditions.elementToBeClickable(ulogujSeBtn));
-	};
 	
 	@FindBy(xpath = "//div[@class='alert alert-dismissible alert-danger']")
 
@@ -54,16 +37,16 @@ public class LoginPageObj {
 	
 
 	public void logIn(String email,String lozinka)   {
-		this.Email().clear();
-		this.Lozinka().clear();
-		this.Email().sendKeys(email);
-		this.Lozinka().sendKeys(lozinka);
+		this.email.clear();
+		this.lozinka.clear();
+		this.email.sendKeys(email);
+		this.lozinka.sendKeys(lozinka);
 	
-		this.UlogujSeBtn().click();
+		this.ulogujSeBtn.click();
 	}
 	
 	public String getErrMsgText() {
-		wait.until(ExpectedConditions.visibilityOf(errorMsg));
+		
 		return this.errorMsg.getText();
 	}
 }

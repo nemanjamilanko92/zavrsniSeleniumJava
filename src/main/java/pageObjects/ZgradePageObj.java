@@ -8,17 +8,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ZgradePageObj {
 	private WebDriver driver;
-	private WebDriverWait wait;
 	
 	public ZgradePageObj(WebDriver driver) {
 		this.driver=driver;
-		wait = new WebDriverWait(driver,5);
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
 	
 	}
 
@@ -26,66 +25,53 @@ public class ZgradePageObj {
     
     private WebElement broj;
     
-    public WebElement Broj() {
-    	return wait.until(ExpectedConditions.visibilityOf(broj));
-    }
+  
 
     @FindBy(id = "brojStanova")
     
     private WebElement brojStanova;
     
-    public WebElement BrojStanova() {
-    	return wait.until(ExpectedConditions.visibilityOf(brojStanova));
-    }
+   
     @FindBy(id = "mesto")
     
     private WebElement mesto;
     
-    public WebElement Mesto() {
-    	return wait.until(ExpectedConditions.visibilityOf(mesto));
-    }
+   
     
     @FindBy(css = "button.btn.btn-outline-primary")
     
     private WebElement pregled;
     
     public WebElement Pregled() {
-    	return wait.until(ExpectedConditions.elementToBeClickable(pregled));
+    	return pregled;
     }
     
     @FindBy(css = "button.btn.btn-danger")
     
     private WebElement resetujte;
     
-    public WebElement Resetujte() {
-    	return wait.until(ExpectedConditions.elementToBeClickable(resetujte));
-    }
+  public WebElement Resetujte() {
+	  return resetujte;
+  }
     
     @FindBy(id = "ulica")
     
     private WebElement ulica;
     
-    public WebElement Ulica() {
-    	return wait.until(ExpectedConditions.visibilityOf(ulica));
-    }
-    
+ 
     @FindBy( xpath = "//li[@class='nav-item active']//button[@class='btn btn-primary']")
     
     private WebElement dodavanje;
     
     public WebElement Dodavanje() {
-    	return wait.until(ExpectedConditions.elementToBeClickable(dodavanje));
+    	return dodavanje;
     }
     
     @FindBy( xpath = "//button[contains(text(),'Dodajte')]")
     
     public WebElement dodajte;
     
-    public WebElement Dodajte() {
-    	
-    	return wait.until(ExpectedConditions.elementToBeClickable(dodajte));
-    }
-    
+  
     @FindBy( xpath = "//div[@class='row justify-content-md-center']//div[1]//div[1]//div[1]")
     
     private WebElement errMessMesto;
@@ -107,19 +93,19 @@ public class ZgradePageObj {
     private WebElement errMessBrojNula;
     
     public WebElement ErrMessBrojNula(){
-    	return wait.until(ExpectedConditions.visibilityOf(errMessBrojNula));
+    	return errMessBrojNula;
     }
     
     public void dodavanjeZgrade(String mesto, String ulica, String broj, String brojStanova){
-    	this.Mesto().clear();
-    	this.Ulica().clear();
-    	this.Broj().clear();
-    	this.BrojStanova().clear();
-    	this.Mesto().sendKeys(mesto);
-    	this.Ulica().sendKeys(ulica);
-    	this.Broj().sendKeys(broj);
-    	this.BrojStanova().sendKeys(brojStanova);
-    	this.BrojStanova().sendKeys(Keys.TAB); //ovaj korak je potreban kako bi se izazvala poruka na input polju broj stanova
+    	this.mesto.clear();
+    	this.ulica.clear();
+    	this.broj.clear();
+    	this.brojStanova.clear();
+    	this.mesto.sendKeys(mesto);
+    	this.ulica.sendKeys(ulica);
+    	this.broj.sendKeys(broj);
+    	this.brojStanova.sendKeys(brojStanova);
+    	this.brojStanova.sendKeys(Keys.TAB); //ovaj korak je potreban kako bi se izazvala poruka na input polju broj stanova
     	boolean isEnabled = dodajte.isEnabled();
     	if(isEnabled=true){
     		this.dodajte.click();
@@ -129,33 +115,33 @@ public class ZgradePageObj {
     }
     
     public void unosenjeVrednostiZgrade(String mesto, String ulica, String broj, String brojStanova){
-    	this.Mesto().clear();
-    	this.Ulica().clear();
-    	this.Broj().clear();
-    	this.BrojStanova().clear();
-    	this.Mesto().sendKeys(mesto);
-    	this.Ulica().sendKeys(ulica);
-    	this.Broj().sendKeys(broj);
-    	this.BrojStanova().sendKeys(brojStanova);
+    	this.mesto.clear();
+    	this.ulica.clear();
+    	this.broj.clear();
+    	this.brojStanova.clear();
+    	this.mesto.sendKeys(mesto);
+    	this.ulica.sendKeys(ulica);
+    	this.broj.sendKeys(broj);
+    	this.brojStanova.sendKeys(brojStanova);
     }
     
     public String getErrMessMesto() {
-    	wait.until(ExpectedConditions.visibilityOf(errMessMesto));
+    	
 		return this.errMessMesto.getText();
 	}
     
     public String getErrMessUlica() {
-    	wait.until(ExpectedConditions.visibilityOf(errMessUlica));
+    	
 		return this.errMessUlica.getText();
 	}
     
     public String getErrMessBroj() {
-    	wait.until(ExpectedConditions.visibilityOf(errMessBroj));
+    	
 		return this.errMessBroj.getText();
 	}
     
     public String getErrMessBrojStanova() {
-    	wait.until(ExpectedConditions.visibilityOf(errMessBrojStanova));
+    	
     		return	this.errMessBrojStanova.getText();
 	} 
     
@@ -167,31 +153,30 @@ public class ZgradePageObj {
     
     private WebElement successMess;
     
-    public WebElement UspesnoDodataZgradaMessage(){
-    	return wait.until(ExpectedConditions.visibilityOf(successMess));
-    }
-    
+   
     public String getUspesnoDodataZgradaMessage() {
-		return this.UspesnoDodataZgradaMessage().getText();
+    	WebDriverWait wait = new WebDriverWait(this.driver, 5);
+    	wait.until(ExpectedConditions.visibilityOf(successMess));
+		return successMess.getText();
 	}
     
     public String getUlicaInputValue(){
-    	String vrednost = this.Ulica().getAttribute("value");
+    	String vrednost = this.ulica.getAttribute("value");
     	return vrednost;
     }
     
     public String getBrojStanovaInputValue(){
-    	String vrednost = this.BrojStanova().getAttribute("value");
+    	String vrednost = this.brojStanova.getAttribute("value");
     	return vrednost;
     }
     
     public String getBrojInputValue(){
-    	String vrednost = this.Broj().getAttribute("value");
+    	String vrednost = this.broj.getAttribute("value");
     	return vrednost;
     }
     
     public String getMestoInputValue(){
-    	String vrednost = this.Mesto().getAttribute("value");
+    	String vrednost = this.mesto.getAttribute("value");
     	return vrednost;
     }
     
@@ -202,7 +187,7 @@ public class ZgradePageObj {
    
     
     public String getZgradaSaIstomAdresomMessage() {
-    	wait.until(ExpectedConditions.visibilityOf(sameAddressMess));
-		return this.sameAddressMess.getText().trim();
+    
+		return this.sameAddressMess.getText();
 	}
 }

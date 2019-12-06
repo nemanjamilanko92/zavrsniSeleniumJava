@@ -47,11 +47,11 @@ public class StanTest extends BaseClass {
 		loginPageObj.logIn(props.getProperty("email"), props.getProperty("password"));
 		//navigujemo na stranicu stana
 		driver.get("http://localhost:8080/stan/1");
-		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+		
 	}
 	//DA BI OVAJ TEST FUNKCIONISAO POTREBNO JE DA SU SVI VLASNICI I STANRI UKLONJENI IZ LISTE STANARA I VLASNIKA
 	@Test(priority = 1)
-	public void postavljanjeVlasnikaTest() throws InterruptedException {
+	public void postavljanjeVlasnikaTest() {
 		
 		//klikcemo na dugme za postavljanje vlasnika stana
 	    //ocekujemo poruku o uspesnom dodavanju vlasnika
@@ -61,7 +61,7 @@ public class StanTest extends BaseClass {
 	}
 	
 	@Test(priority = 2)
-	public void uklanjanjeVlasnikaTest() throws InterruptedException {
+	public void uklanjanjeVlasnikaTest() {
 		
 		//klikcemo na dugme za brisanje vlasnika stana
 	    //ocekujemo poruku o uspesnom brisanju vlasnika
@@ -72,7 +72,7 @@ public class StanTest extends BaseClass {
 	}
 	
 	@Test(priority = 3)
-	public void dodavanjeStanaraTest() throws InterruptedException {
+	public void dodavanjeStanaraTest() {
 		
 		//klikcemo na dugme za dodavanje stanara
 	    //ocekujemo poruku o uspesnom dodavanja stanara
@@ -82,18 +82,18 @@ public class StanTest extends BaseClass {
 	}
 	
 	@Test(priority = 5)
-	public void uklanjanjeStanaraTest() throws InterruptedException {
+	public void uklanjanjeStanaraTest()  {
 		
 		//klikcemo na dugme za uklanjanje stanara
 	    //ocekujemo poruku o uspesnom uklanjanju stanara
 		
-		stanPageObj.UkloniStanaraDugme().click();
+		stanPageObj.ukloniStanaraDugme.get(0).click();
 	
 		assertEquals(stanPageObj.getStanarUklonjenSuccesMsg(), "Uspesno ste uklonili stanara!");
 	}
 	
 	@Test(priority = 4)
-	public void postaviZaPredsednika() throws InterruptedException {
+	public void postaviZaPredsednika()  {
 		
 		//klikcemo na dugme za dodavanje predsednika zgrade
 	    //ocekujemo poruku o uspesnom dodavanja predsednika
@@ -104,7 +104,7 @@ public class StanTest extends BaseClass {
 	
 	
 	@AfterClass
-	public void tearDown() throws InterruptedException {
+	public void tearDown()  {
 		
 		driver.quit();
 		driver=null;

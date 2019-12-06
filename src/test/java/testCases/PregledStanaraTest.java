@@ -51,13 +51,13 @@ public class PregledStanaraTest extends BaseClass{
 	}
 	
 	@Test
-	public void PozitivanTestPretrageStanara5() {
+	public void PozitivanTestPretrageStanara() {
 		
 		//u polje za pretragu stanara unosimo nepostojeceg stanara (nasumicni text)
 	    //ocekujemo poruku da ni jedan stanar nije pronadjen
 		
 		pregledStanaraPageObj.UnosPretrage("AAAAAAAAA");
-		assertEquals(pregledStanaraPageObj.ErrMessZaNepostojecegStanara().getText().trim(), "Nijedan stanar sa trazenim kriterijumom nije prondajen!");
+		assertEquals(pregledStanaraPageObj.ErrMessZaNepostojecegStanara(), "Nijedan stanar sa trazenim kriterijumom nije prondajen!");
 	}
 	@DataProvider
 	public Object[][] dataprovider(){

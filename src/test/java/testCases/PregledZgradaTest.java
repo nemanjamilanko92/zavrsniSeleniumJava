@@ -40,7 +40,7 @@ public class PregledZgradaTest extends BaseClass{
 		 //navigujemo na stranicu pregleda zgrada
 		adminPocetnaPageObj.Zgrade().click();
 		zgradePageObj.Pregled().click();
-		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+		
 	}
 	//ISKORISTI METDO ZA PRELGED ZGRADE
 	@Test

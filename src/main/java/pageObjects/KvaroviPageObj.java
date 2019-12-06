@@ -7,52 +7,53 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class KvaroviPageObj {
 	private WebDriver driver;
-	private WebDriverWait wait;
+
 	
 	public  KvaroviPageObj(WebDriver driver) {
 		this.driver=driver;
-		wait = new WebDriverWait(driver,5);
-		PageFactory.initElements(driver, this);
+	
+		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
 	}
 	
 	@FindBy(xpath = "//a[@class='nav-link active']")
 	private WebElement kvarovi;
 	
 	public WebElement Kvarovi() {
-		return wait.until(ExpectedConditions.elementToBeClickable(kvarovi));
+		return kvarovi;
 	}
 	
 	@FindBy(xpath = "//button[@class='btn']")
 	private WebElement dodaj;
 	
 	public WebElement Dodaj() {
-		return wait.until(ExpectedConditions.elementToBeClickable(dodaj));
+		return dodaj;
 	}
 	
 	@FindBy(css  = "input[class*='ng']")
 	private WebElement prikaziZavrseneKvarove;
 	
 	public WebElement PrikaziZavrseneKvarove() {
-		return wait.until(ExpectedConditions.elementToBeClickable(prikaziZavrseneKvarove));
+		return prikaziZavrseneKvarove;
 	}
 	
 	@FindBy(id  = "mesto")
 	private WebElement mesto;
 	
 	public WebElement Mesto() {
-		return wait.until(ExpectedConditions.elementToBeClickable(mesto));
+		return mesto;
 	}
 	
 	@FindBy(xpath = "/html/body/app-root/app-zgrada/div/div[2]/app-dodaj-kvar/div/form/fieldset/div[1]/div/div")
 	private WebElement mestoErrMsg;
 	
 	public WebElement MestoErrMsg() {
-		return wait.until(ExpectedConditions.visibilityOf(mestoErrMsg));
+		return mestoErrMsg;
 	}
 	
 	public String getMestoErrMsg() {
@@ -63,14 +64,14 @@ public class KvaroviPageObj {
 	private WebElement opis;
 	
 	public WebElement Opis() {
-		return wait.until(ExpectedConditions.elementToBeClickable(opis));
+		return opis;
 	}
 	
 	@FindBy(xpath = "/html/body/app-root/app-zgrada/div/div[2]/app-dodaj-kvar/div/form/fieldset/div[2]/div/div")
 	private WebElement opisErrMsg;
 	
 	public WebElement OpisErrMsg() {
-		return wait.until(ExpectedConditions.visibilityOf(opisErrMsg));
+		return opisErrMsg;
 	}
 	
 	public String getOpisErrMsg() {
@@ -81,14 +82,14 @@ public class KvaroviPageObj {
 	private WebElement izaberiBtn;
 	
 	public WebElement IzaberiBtn() {
-		return wait.until(ExpectedConditions.elementToBeClickable(izaberiBtn));
+		return izaberiBtn;
 	}
 	
 	@FindBy(xpath = "//input[@placeholder='Pretraga']")
 	private WebElement pretraga;
 	
 	public WebElement Pretraga() {
-		return wait.until(ExpectedConditions.visibilityOf(pretraga));
+		return pretraga;
 	}
 	
 	@FindBy(xpath   = "//table//button")
@@ -98,14 +99,14 @@ public class KvaroviPageObj {
 	private WebElement odustani;
 	
 	public WebElement Odustani() {
-		return wait.until(ExpectedConditions.elementToBeClickable(odustani));
+		return odustani;
 	}
 	
 	@FindBy(css   = "span[class*='low']")
 	private WebElement izabraniStanar;
 	
 	public WebElement IzabraniStanar() {
-		return wait.until(ExpectedConditions.visibilityOf(izabraniStanar));
+		return izabraniStanar;
 	}
 	public String getizabraniStanarImePrezime() {
 		return IzabraniStanar().getText().trim();
@@ -115,7 +116,7 @@ public class KvaroviPageObj {
 	public WebElement submit;
 	
 	public WebElement Submit() {
-		return wait.until(ExpectedConditions.elementToBeClickable(submit));
+		return submit;
 	}
 	public void DodajKvar(String mesto,String opis,int index) {
 		this.Dodaj().click();
@@ -149,7 +150,7 @@ public class KvaroviPageObj {
 	private WebElement alertObavestenja;
 	 
 	public  WebElement alertObavestenja() {
-		return wait.until(ExpectedConditions.visibilityOf(alertObavestenja));
+		return alertObavestenja;
 	}
 	
 	public  String alertObavestenjaMsg() { 

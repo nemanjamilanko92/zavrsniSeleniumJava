@@ -5,9 +5,13 @@
     <classes>
       <class name="testCases.TackeDnevnogRedaTest">
         <methods>
+          <include name="obrisiObavestenjePozitivan"/>
           <include name="SetUp"/>
           <include name="izmeniTackuDnevnogRedaPozitivan"/>
           <include name="tearDown"/>
+          <include name="dodajTackuDnevnogRedaPozitivan"/>
+          <include name="dodajTackuDnevnogRedaNegativan"/>
+          <include name="dodavanjePredlogaTackeUSkupstinuPozitivan"/>
         </methods>
       </class> <!-- testCases.TackeDnevnogRedaTest -->
     </classes>

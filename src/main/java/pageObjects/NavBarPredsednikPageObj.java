@@ -7,25 +7,25 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class NavBarPredsednikPageObj {
 	private WebDriver driver;
-	private WebDriverWait wait;
+	
 
 	public NavBarPredsednikPageObj(WebDriver driver) {
 		this.driver = driver;
-		wait = new WebDriverWait(driver, 5);
-		PageFactory.initElements(driver, this);
-
+		
+		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
 	}
 	@FindBy(css = "button.btn.btn-secondary")
     
     private WebElement izlogujteSe;
 	
 	public WebElement IzlogujteSe() {
-		return wait.until(ExpectedConditions.elementToBeClickable(izlogujteSe));
+		return izlogujteSe;
 		
 	}
 	
@@ -34,7 +34,7 @@ public class NavBarPredsednikPageObj {
 	private WebElement pocetna;
 	
 	public WebElement Pocetna() {
-		return wait.until(ExpectedConditions.elementToBeClickable(pocetna));
+		return pocetna;
 		
 	}
     
@@ -43,7 +43,7 @@ public class NavBarPredsednikPageObj {
 	private WebElement promenaLozine;
 	
 	public WebElement PromenaLozine() {
-		return wait.until(ExpectedConditions.elementToBeClickable(promenaLozine));
+		return promenaLozine;
 		
 	}
 	
@@ -54,7 +54,7 @@ public class NavBarPredsednikPageObj {
 	
 	
 	public String getEmailText() {
-		wait.until(ExpectedConditions.elementToBeClickable(emailText));
+		
 		return emailText.getText().trim();
 	}
 
@@ -63,6 +63,6 @@ public class NavBarPredsednikPageObj {
 	private WebElement logOutBtn;
 	
 	public WebElement LogOutBtn() {
-		return wait.until(ExpectedConditions.elementToBeClickable(logOutBtn));
+		return logOutBtn;
 	}
 }

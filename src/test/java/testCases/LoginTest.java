@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import pageObjects.AdminPocetnaPageObj;
 import pageObjects.LoginPageObj;
-import pageObjects.Zgrade;
+
 import setup.BaseClass;
 
 public class LoginTest extends BaseClass{

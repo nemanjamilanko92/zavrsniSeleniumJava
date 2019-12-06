@@ -1,41 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
+<testng-results skipped="0" failed="0" ignored="0" total="7" passed="7">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="22590" started-at="2019-12-03T21:59:33Z" finished-at="2019-12-03T21:59:55Z">
+  <suite name="Default suite" duration-ms="19209" started-at="2019-12-05T14:47:09Z" finished-at="2019-12-05T14:47:28Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="22590" started-at="2019-12-03T21:59:33Z" finished-at="2019-12-03T21:59:55Z">
-      <class name="testCases.TackeDnevnogRedaTest">
-        <test-method status="PASS" signature="SetUp()[pri:0, instance:testCases.TackeDnevnogRedaTest@42e26948]" name="SetUp" is-config="true" duration-ms="16295" started-at="2019-12-03T21:59:33Z" finished-at="2019-12-03T21:59:49Z">
+    <test name="Default test" duration-ms="19209" started-at="2019-12-05T14:47:09Z" finished-at="2019-12-05T14:47:28Z">
+      <class name="testCases.PromenaLozinkeTest">
+        <test-method status="PASS" signature="SetUp()[pri:0, instance:testCases.PromenaLozinkeTest@42e26948]" name="SetUp" is-config="true" duration-ms="10596" started-at="2019-12-05T14:47:09Z" finished-at="2019-12-05T14:47:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SetUp -->
-        <test-method status="PASS" signature="dodajTackuDnevnogRedaPozitivan()[pri:1, instance:testCases.TackeDnevnogRedaTest@42e26948]" name="dodajTackuDnevnogRedaPozitivan" duration-ms="1797" started-at="2019-12-03T21:59:49Z" finished-at="2019-12-03T21:59:51Z">
+        <test-method status="PASS" signature="promenaLozinkePos()[pri:1, instance:testCases.PromenaLozinkeTest@42e26948]" name="promenaLozinkePos" duration-ms="2817" started-at="2019-12-05T14:47:19Z" finished-at="2019-12-05T14:47:22Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- dodajTackuDnevnogRedaPozitivan -->
-        <test-method status="PASS" signature="dodajTackuDnevnogRedaNegativan()[pri:2, instance:testCases.TackeDnevnogRedaTest@42e26948]" name="dodajTackuDnevnogRedaNegativan" duration-ms="703" started-at="2019-12-03T21:59:51Z" finished-at="2019-12-03T21:59:52Z">
+        </test-method> <!-- promenaLozinkePos -->
+        <test-method status="PASS" signature="potvrdaDaJeLozinkaPromenjena()[pri:2, instance:testCases.PromenaLozinkeTest@42e26948]" name="potvrdaDaJeLozinkaPromenjena" duration-ms="1147" started-at="2019-12-05T14:47:22Z" finished-at="2019-12-05T14:47:23Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- dodajTackuDnevnogRedaNegativan -->
-        <test-method status="PASS" signature="izmeniTackuDnevnogRedaPozitivan()[pri:3, instance:testCases.TackeDnevnogRedaTest@42e26948]" name="izmeniTackuDnevnogRedaPozitivan" duration-ms="1227" started-at="2019-12-03T21:59:52Z" finished-at="2019-12-03T21:59:53Z">
+        </test-method> <!-- potvrdaDaJeLozinkaPromenjena -->
+        <test-method status="PASS" signature="negativniTestovi1()[pri:3, instance:testCases.PromenaLozinkeTest@42e26948]" name="negativniTestovi1" duration-ms="852" started-at="2019-12-05T14:47:23Z" finished-at="2019-12-05T14:47:24Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- izmeniTackuDnevnogRedaPozitivan -->
-        <test-method status="PASS" signature="obrisiObavestenjePozitivan()[pri:4, instance:testCases.TackeDnevnogRedaTest@42e26948]" name="obrisiObavestenjePozitivan" duration-ms="350" started-at="2019-12-03T21:59:53Z" finished-at="2019-12-03T21:59:53Z">
+        </test-method> <!-- negativniTestovi1 -->
+        <test-method status="PASS" signature="negativniTestovi2()[pri:4, instance:testCases.PromenaLozinkeTest@42e26948]" name="negativniTestovi2" duration-ms="715" started-at="2019-12-05T14:47:24Z" finished-at="2019-12-05T14:47:25Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- obrisiObavestenjePozitivan -->
-        <test-method status="PASS" signature="dodavanjePredlogaTackeUSkupstinuPozitivan()[pri:5, instance:testCases.TackeDnevnogRedaTest@42e26948]" name="dodavanjePredlogaTackeUSkupstinuPozitivan" duration-ms="675" started-at="2019-12-03T21:59:53Z" finished-at="2019-12-03T21:59:54Z">
+        </test-method> <!-- negativniTestovi2 -->
+        <test-method status="PASS" signature="negativniTestovi3()[pri:5, instance:testCases.PromenaLozinkeTest@42e26948]" name="negativniTestovi3" duration-ms="576" started-at="2019-12-05T14:47:25Z" finished-at="2019-12-05T14:47:25Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- dodavanjePredlogaTackeUSkupstinuPozitivan -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:testCases.TackeDnevnogRedaTest@42e26948]" name="tearDown" is-config="true" duration-ms="1486" started-at="2019-12-03T21:59:54Z" finished-at="2019-12-03T21:59:55Z">
+        </test-method> <!-- negativniTestovi3 -->
+        <test-method status="PASS" signature="negativniTestovi4()[pri:6, instance:testCases.PromenaLozinkeTest@42e26948]" name="negativniTestovi4" duration-ms="529" started-at="2019-12-05T14:47:25Z" finished-at="2019-12-05T14:47:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- negativniTestovi4 -->
+        <test-method status="PASS" signature="negativniTestovi5()[pri:7, instance:testCases.PromenaLozinkeTest@42e26948]" name="negativniTestovi5" duration-ms="744" started-at="2019-12-05T14:47:26Z" finished-at="2019-12-05T14:47:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- negativniTestovi5 -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:testCases.PromenaLozinkeTest@42e26948]" name="tearDown" is-config="true" duration-ms="1186" started-at="2019-12-05T14:47:27Z" finished-at="2019-12-05T14:47:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- testCases.TackeDnevnogRedaTest -->
+      </class> <!-- testCases.PromenaLozinkeTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

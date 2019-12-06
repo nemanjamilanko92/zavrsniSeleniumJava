@@ -10,6 +10,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import net.bytebuddy.dynamic.scaffold.TypeInitializer.Drain;
 import pageObjects.AdminPocetnaPageObj;
 import pageObjects.LoginPageObj;
 import pageObjects.Pregled;
@@ -44,6 +45,7 @@ public class TackeDnevnogRedaTest  extends BaseClass {
 		loginPageObj.logIn("predSkup@gmail.com", "Bar5slova");
 		  //navigujemo na stranicu tacaka dnevnog reda
 		driver.get("http://localhost:8080/zgrada/1/tacke");
+	
 	}
 	
 	@Test(priority = 1)
@@ -74,7 +76,7 @@ public class TackeDnevnogRedaTest  extends BaseClass {
 		  //klikcemo na dugme za izmenu tacke dnevnog reda
 	    //dodajemo izmenu u tacku dnevnog reda
 	    //ocekujemo poruku o uspesnoj promeni tacke dnevnog reda i proveravamo da je text stvarno izmenjen
-		
+		driver.navigate().refresh();
 		zgradaKucniSavetPageObj.PredoloziTackeDnevnogReda().click();
 		zgradaKucniSavetPageObj.izmeniTackeDnevnogReda("LOL");		
 		assertEquals(zgradaKucniSavetPageObj.getAlertMsgText(), "Tacka uspesno izmenjena");
@@ -86,7 +88,7 @@ public class TackeDnevnogRedaTest  extends BaseClass {
 		
 		//klickemo na dugme za brisanje kvara
 	    //ocekujemo poruku o uspesnom brisanju kvara
-		
+		driver.navigate().refresh();
 		zgradaKucniSavetPageObj.obrisiObavestenje();
 		assertEquals(zgradaKucniSavetPageObj.getAlertMsgText(), "Tacka uspesno izbrisana");
 	}
@@ -96,7 +98,7 @@ public class TackeDnevnogRedaTest  extends BaseClass {
 		
 		//na dropdown listi biramo skupstinu u koju zelimo da prosledimo tacku
 	    //klikcemo na dugme za dodavanje tacke u skupstinu
-		
+		driver.navigate().refresh();
 		zgradaKucniSavetPageObj.dodavanjePredlogaTackeUSkupstinu(1,0);
 		assertEquals(zgradaKucniSavetPageObj.getAlertMsgText(), "Tacka uspesno dodata u skupstinu");
 	}

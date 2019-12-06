@@ -9,18 +9,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class StanPageObj {
 	private WebDriver driver;
-	private WebDriverWait wait;
 	
 	public StanPageObj(WebDriver driver) {
-		this.driver=driver;
-		wait = new WebDriverWait(driver,5);
-		PageFactory.initElements(driver, this);
+		this.driver=driver;	
+		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
 	}
 	
 	@FindBy(xpath = "//select[@id='prikaz']")
@@ -35,40 +34,22 @@ public class StanPageObj {
 	}
 	
 	@FindBy(xpath = "//button[contains(text(),'Postavi za predsednika')]") //alertovi vezani za dugmad!!!
-	
 	public List<WebElement> postaviZaPredsednikaDugme;
 	
 	
 	
 	@FindBy(xpath = "//button[contains(text(),'Postavi za vlasnika')]")
-	
 	public List<WebElement> postaviZaVlasnikaDugme;
 	
 	
 	@FindBy(xpath =  "//button[contains(text(),'Ukloni')]")
-	
-	
-	
 	public List<WebElement> ukloniStanaraDugme;
 	
-	public WebElement UkloniStanaraDugme(){
-		WebElement dugme = ukloniStanaraDugme.get(0);
-		try {
-			wait.until(ExpectedConditions.visibilityOfAllElements(postaviZaVlasnikaDugme));
-			
-		}catch (StaleElementReferenceException e) {
-			 dugme =  driver.findElement(By.xpath("//button[contains(text(),'Ukloni')]"));
-		}
-		
-		return	dugme;
-	
-		
-	}
+
 	
 	@FindBy(xpath = "//button[contains(text(),'Dodaj u stanare')]")
 	
 	public List<WebElement> dodajUStanareDugme;
-	
 	
 	
 	@FindBy(xpath = "//input[@id='filter']")
@@ -76,7 +57,7 @@ public class StanPageObj {
 	private WebElement unosImePrezime;
 	
 	public WebElement UnosImePrezime() {
-		return wait.until(ExpectedConditions.visibilityOf(unosImePrezime));
+		return unosImePrezime;
 	}
 	
 	@FindBy(xpath = "//button[contains(text(),'Filtriraj')]")
@@ -84,7 +65,7 @@ public class StanPageObj {
 	private WebElement filtrirajDugme;
 	
 	public WebElement FiltrirajDugme() {
-		return wait.until(ExpectedConditions.elementToBeClickable(filtrirajDugme));
+		return filtrirajDugme;
 	}
 	
 	@FindBy(xpath = "//*[@id=\"toast-container\"]/div/div")
@@ -93,7 +74,7 @@ public class StanPageObj {
     
     public WebElement AlertMsg() {
 		
-		return wait.until(ExpectedConditions.visibilityOf(alertMsg));
+		return alertMsg;
 	}
     
     public String getAlertMsg() {
@@ -108,7 +89,7 @@ public class StanPageObj {
    
     
     public String getVlasnikPostavljenSuccesMsg() {
-    	wait.until(ExpectedConditions.visibilityOf(vlasnikPostavljenSuccesMsg));
+    
     	return vlasnikPostavljenSuccesMsg.getText().trim();
     }
     
@@ -119,7 +100,9 @@ public class StanPageObj {
   
     
     public String getVlasnikUklonjenSuccesMsg() {
-    	wait.until(ExpectedConditions.visibilityOf(vlasnikUklonjenSuccesMsg));
+    	
+    	 WebDriverWait wait = new WebDriverWait(driver, 5);
+    	    wait.until(ExpectedConditions.visibilityOf(vlasnikUklonjenSuccesMsg));
     	return vlasnikUklonjenSuccesMsg.getText().trim();
     }
     
@@ -130,7 +113,7 @@ public class StanPageObj {
   
     
     public String getStanarUklonjenSuccesMsg() {
-    	 wait.until(ExpectedConditions.visibilityOf(stanarUklonjenSuccesMsg));
+    	 
     	return stanarUklonjenSuccesMsg.getText().trim();
     }
     
@@ -141,7 +124,7 @@ public class StanPageObj {
    
     
     public String getStanarDodatSuccesMsg() {
-    	wait.until(ExpectedConditions.visibilityOf(stanarDodatSuccesMsg));
+    	
     	return stanarDodatSuccesMsg.getText().trim();
     }
     
@@ -152,7 +135,8 @@ public class StanPageObj {
   
     
     public String getPredsednikDodatSuccesMsg() {
-    	wait.until(ExpectedConditions.visibilityOf(predsednikDodatSuccesMsg));
-    	return predsednikDodatSuccesMsg.getText().trim();
+    WebDriverWait wait = new WebDriverWait(driver, 5);
+    wait.until(ExpectedConditions.visibilityOf(predsednikDodatSuccesMsg));
+    	return predsednikDodatSuccesMsg.getText();
     }
 }

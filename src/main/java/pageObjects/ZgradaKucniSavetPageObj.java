@@ -9,6 +9,7 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,12 +17,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class ZgradaKucniSavetPageObj {
 	
 	private WebDriver driver;
-	private WebDriverWait wait;
-	
+
 	public  ZgradaKucniSavetPageObj(WebDriver driver) {
-		this.driver=driver;
-		wait = new WebDriverWait(driver,5);
-		PageFactory.initElements(driver, this);
+		this.driver=driver;	
+		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
 	}
 	
 	@FindBy(xpath = "//select[@id='prikaz']")
@@ -40,7 +39,7 @@ public class ZgradaKucniSavetPageObj {
 	private WebElement gospPredLink;
 	
 	public WebElement gospPredLink() {
-		return wait.until(ExpectedConditions.visibilityOf(gospPredLink));
+		return gospPredLink;
 	}
 	
 	@FindBy(xpath = "//a[@class='nav-link active']")
@@ -48,7 +47,7 @@ public class ZgradaKucniSavetPageObj {
 	private WebElement stanovi;
 	
 	public WebElement Stanovi() {
-		return wait.until(ExpectedConditions.visibilityOf(stanovi));
+		return stanovi;
 	}
 	
 	@FindBy(xpath = "//tr[1]//td[2]//a[1]")
@@ -56,7 +55,7 @@ public class ZgradaKucniSavetPageObj {
 	private WebElement vlasnikIstanari;
 	
 	public WebElement VlasnikIstanari() {
-		return wait.until(ExpectedConditions.visibilityOf(vlasnikIstanari));
+		return vlasnikIstanari;
 	}
 	
 	@FindBy(xpath = "//a[contains(text(),'Obavestenja')]")
@@ -64,7 +63,7 @@ public class ZgradaKucniSavetPageObj {
 	private WebElement obavestenja;
 	
 	public WebElement Obavestenja() {
-		return wait.until(ExpectedConditions.visibilityOf(obavestenja));
+		return obavestenja;
 	}
 	
 	@FindBy(id = "izmeniObavestenje")
@@ -82,7 +81,7 @@ public class ZgradaKucniSavetPageObj {
 	private WebElement potvrdi;
 	
 	public WebElement Potvrdi() {
-		return wait.until(ExpectedConditions.visibilityOf(potvrdi));
+		return potvrdi;
 	}
 	
 	@FindBy(xpath = "//div[@class='container']//div[1]//div[1]//table[1]//tbody[1]//tr[3]//td[1]//span[1]//a[3]")
@@ -90,7 +89,7 @@ public class ZgradaKucniSavetPageObj {
 	private WebElement odustani;
 	
 	public WebElement Odustani() {
-		return wait.until(ExpectedConditions.visibilityOf(odustani));
+		return odustani;
 	}
 	
 	@FindBy(id = "dodajObavestenje")
@@ -98,7 +97,7 @@ public class ZgradaKucniSavetPageObj {
 	private WebElement dodaj;
 	
 	public WebElement Dodaj() {
-		return wait.until(ExpectedConditions.elementToBeClickable(dodaj));
+		return dodaj;
 	}
 	
 	@FindBy(xpath = "//*[@id=\"noviTekst\"]")
@@ -106,7 +105,7 @@ public class ZgradaKucniSavetPageObj {
 	private WebElement unosIzmeneTeksta;
 	
 	public WebElement unosIzmeneTeksta() {
-		return wait.until(ExpectedConditions.visibilityOf(unosIzmeneTeksta));
+		return unosIzmeneTeksta;
 	}
 	
 	@FindBy(xpath = "//*[@id=\"toast-container\"]/div/div")
@@ -115,7 +114,7 @@ public class ZgradaKucniSavetPageObj {
 	
 		
 	public  String alertObavestenjaMsg() {
-		wait.until(ExpectedConditions.visibilityOf(alertObavestenja));
+	
 
 		return alertObavestenja.getText().trim();
 		}
@@ -125,7 +124,7 @@ public class ZgradaKucniSavetPageObj {
 		private WebElement novoObavestenje;
 		
 		public WebElement novoObavestenje() {
-			return wait.until(ExpectedConditions.visibilityOf(novoObavestenje));
+			return novoObavestenje;
 		}
 		
 		public void unosNovoObavestenje(String value) {
@@ -137,7 +136,7 @@ public class ZgradaKucniSavetPageObj {
 		public WebElement potvrdiBtn;
 		
 		public WebElement potvrdiBtn() {
-			return wait.until(ExpectedConditions.elementToBeClickable(potvrdiBtn));
+			return potvrdiBtn;
 		}
 		
 		@FindBy(xpath = "//a[contains(text(),'Predlozi tacke dnevnog reda')]")
@@ -145,7 +144,7 @@ public class ZgradaKucniSavetPageObj {
 		private WebElement predoloziTackeDnevnogReda;
 		
 		public WebElement PredoloziTackeDnevnogReda() {
-			return wait.until(ExpectedConditions.elementToBeClickable(predoloziTackeDnevnogReda));
+			return predoloziTackeDnevnogReda;
 		}
 		
 		@FindBy(xpath = "//a[contains(text(),'Sastanci skupstine')]")
@@ -153,7 +152,7 @@ public class ZgradaKucniSavetPageObj {
 		private WebElement sastanciSkupstine;
 		
 		public WebElement SastanciSkupstine() {
-			return wait.until(ExpectedConditions.elementToBeClickable(sastanciSkupstine));
+			return sastanciSkupstine;
 		}
 		
 		@FindBy(xpath = "//select[@class='custom-select ng-untouched ng-pristine ng-valid']")
@@ -205,7 +204,7 @@ public class ZgradaKucniSavetPageObj {
 		private WebElement kvarovi;
 		
 		public WebElement Kvarovi() {
-			return wait.until(ExpectedConditions.elementToBeClickable(kvarovi));
+			return kvarovi;
 		}
 		
 		@FindBy(xpath = "//input[contains(text(),'Prikazi zavrsene kvarove')]")
@@ -213,7 +212,7 @@ public class ZgradaKucniSavetPageObj {
 		private WebElement checkboxKvarovi;
 		
 		public WebElement CheckboxKvarovi() {
-			return wait.until(ExpectedConditions.elementToBeClickable(checkboxKvarovi));
+			return checkboxKvarovi;
 		}
 		
 		@FindBy(xpath = "//span[contains(text(),'ukloni')]")
@@ -241,7 +240,7 @@ public class ZgradaKucniSavetPageObj {
 		private WebElement alertMsg;
 		
 		public String getAlertMsgText() {
-			wait.until(ExpectedConditions.visibilityOf(alertMsg));
+			
 			return alertMsg.getText().trim();
 		}
 		
@@ -249,10 +248,8 @@ public class ZgradaKucniSavetPageObj {
 	
 		private WebElement novoDodatoOvacestenje;
 		
-	
-		
 		public String getNovoDodatoOvacestenje() {
-			wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(novoDodatoOvacestenje)));
+			//wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(novoDodatoOvacestenje)));
 			return novoDodatoOvacestenje.getText().trim();
 		}
 		
@@ -271,7 +268,7 @@ public class ZgradaKucniSavetPageObj {
 		private WebElement dodajTackuDnevnogRedaDugme;
 		
 		public WebElement DodajTackuDnevnogRedaDugme() {
-			return wait.until(ExpectedConditions.visibilityOf(dodajTackuDnevnogRedaDugme));
+			return dodajTackuDnevnogRedaDugme;
 		}
 		
 		@FindBy(xpath = "//textarea[@id='tekstPtdr']")
@@ -279,7 +276,7 @@ public class ZgradaKucniSavetPageObj {
 		private WebElement novaTackaDnevnogReda;
 		
 		public WebElement NovaTackaDnevnogReda() {
-			return wait.until(ExpectedConditions.visibilityOf(novaTackaDnevnogReda));
+			return novaTackaDnevnogReda;
 		}
 		
 		@FindBy(xpath =  "//button[@class='btn btn-primary']")
@@ -287,7 +284,7 @@ public class ZgradaKucniSavetPageObj {
 		public WebElement potvrdiTackeBtn;
 		
 		public WebElement PotvrdiTackeBtn() {
-			return wait.until(ExpectedConditions.elementToBeClickable(potvrdiTackeBtn));
+			return potvrdiTackeBtn;
 		}
 		
 		public void dodajTackuDnevnogReda(String text) {

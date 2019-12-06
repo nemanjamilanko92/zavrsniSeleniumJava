@@ -7,17 +7,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PromenaLozinkePageObj {
 	private WebDriver driver;
-	private WebDriverWait wait;
 
 	public PromenaLozinkePageObj(WebDriver driver) {
 		this.driver = driver;
-		wait = new WebDriverWait(driver, 5);
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
 
 	}
 	
@@ -25,46 +24,25 @@ public class PromenaLozinkePageObj {
     
     private WebElement novaLozinka;
 	
-	public WebElement NovaLozinka() {
-		
-		return wait.until(ExpectedConditions.visibilityOf(novaLozinka));
-	}
     @FindBy(id = "potvrdaNoveLozinke")
     
     private WebElement potvrdaNoveLozinke;
     
-    public WebElement PotvrdaNoveLozinke() {
-		
-		return wait.until(ExpectedConditions.visibilityOf(potvrdaNoveLozinke));
-	}
     
     @FindBy(css = "button.btn.btn-primary")
     
     public WebElement promeniteLozinku;
-    
-    public WebElement PromeniteLozinku() {
-		
-		return wait.until(ExpectedConditions.elementToBeClickable(promeniteLozinku));
-	}
-    
-    
+      
     @FindBy(id = "staraLozinka")
     
     private WebElement staraLozinka;
-    
-    public WebElement StaraLozinka() {
-		
-		return wait.until(ExpectedConditions.visibilityOf(staraLozinka));
-	}
-    
+        
     @FindBy(xpath = "//*[@id=\"toast-container\"]/div/div")
     
     private WebElement alertMsg;
     
-  
-    
     public String getAlertMsg() {
-    	wait.until(ExpectedConditions.visibilityOf(alertMsg));
+    	
 		return alertMsg.getText().trim();
 	}
     
@@ -75,7 +53,6 @@ public class PromenaLozinkePageObj {
    
     
     public String getstaraLozinkaErrMsg() {
-    	wait.until(ExpectedConditions.visibilityOf(staraLozinkaErrMsg));
 		return staraLozinkaErrMsg.getText().trim();
 	}
     
@@ -86,7 +63,6 @@ public class PromenaLozinkePageObj {
    
     
     public String getnovaLozinkaErrMsg() {
-    	wait.until(ExpectedConditions.visibilityOf(novaLozinkaErrMsg));
 		return novaLozinkaErrMsg.getText().trim();
 	}
     
@@ -94,20 +70,17 @@ public class PromenaLozinkePageObj {
     
     private WebElement potvrdaNoveLozinkaErrMsg;
     
-   
-        
     public String getpotvrdaNoveLozinkaErrMsg() {
-    	 wait.until(ExpectedConditions.visibilityOf(potvrdaNoveLozinkaErrMsg));
 		return potvrdaNoveLozinkaErrMsg.getText();
 	}
     
     public void unosLozinke(String staraLozinka,String novaLozinka,String potvrdaNoveLozinke) {
-    	this.StaraLozinka().clear();
-    	this.NovaLozinka().clear();
-    	this.PotvrdaNoveLozinke().clear();
-    	this.StaraLozinka().sendKeys(staraLozinka);
-    	this.NovaLozinka().sendKeys(novaLozinka);
-    	this.PotvrdaNoveLozinke().sendKeys(potvrdaNoveLozinke);
+    	this.staraLozinka.clear();
+    	this.novaLozinka.clear();
+    	this.potvrdaNoveLozinke.clear();
+    	this.staraLozinka.sendKeys(staraLozinka);
+    	this.novaLozinka.sendKeys(novaLozinka);
+    	this.potvrdaNoveLozinke.sendKeys(potvrdaNoveLozinke);
     	@SuppressWarnings("unused")
 		boolean isEnabled = promeniteLozinku.isEnabled();
     	if(isEnabled=true) {

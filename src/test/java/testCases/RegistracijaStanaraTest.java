@@ -2,6 +2,7 @@ package testCases;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -42,10 +43,10 @@ public class RegistracijaStanaraTest extends BaseClass{
 		loginPageObj.logIn(props.getProperty("email"), props.getProperty("password"));
 		//navigujemo na stranicu stanari
 		adminPocetnaPageObj.Stanari().click();
-		driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+		
 	}
 	
-	@Test()
+	@Test(priority = 1)
 	public void registracijaStanaraPos() {
 		
 		//unosimo stanara sa ocekivanim kredencijalima
@@ -56,28 +57,30 @@ public class RegistracijaStanaraTest extends BaseClass{
 		assertEquals(stanariRegistracijaPageObj.getUspesnoRegStanarMsg(), "Uspesno ste registrovali stanara!");
 		stanariRegistracijaPageObj.Pregled().click();
 		pregledStanaraPageObj.Prikazi("50");
-		assertEquals(pregledStanaraPageObj.ImePrezimeStanar().getText().trim(), "Slavisa1 slavkovic");
+		assertTrue(pregledStanaraPageObj.proveraStanara("Slavisa1", "slavkovic", "(nesto12@nesto.com)"));
+		
 	}
-	@Test
+	@Test(priority = 2)
 	public void registracijaStanaranegativan1 () {
 		
 		//unosimo vec postojeceg stanara u listu
 		  //ocekujemo poruku da je mail adresa stanara vec zauzeta
-		
+		driver.navigate().refresh();
+		stanariRegistracijaPageObj.registracija.click();
 		stanariRegistracijaPageObj.regStanara("nesto12@nesto.com", "Nesto5", "Slavisa1", "slavkovic");
 		assertEquals(stanariRegistracijaPageObj.getUspesnoRegStanarMsg(), "E-mail adresa: nesto12@nesto.com je zauzeta!");
 		stanariRegistracijaPageObj.Pregled().click();
 		pregledStanaraPageObj.Prikazi("50");
-		assertEquals(pregledStanaraPageObj.ImePrezimeStanar().getText().trim(), "Slavisa1 slavkovic");
+		assertTrue(pregledStanaraPageObj.proveraStanara("Slavisa1", "slavkovic", "(nesto12@nesto.com)"));
 		
 	}
 	
-	@Test
+	@Test(priority = 3)
 	public void PozitivanTestResetDugme(){
 		
 		//unosimo podatke za kreiranje stanara i zatim klikcemo na reset dugme
 	    //ocekujemo da su sve forme za unos prazne
-		
+		stanariRegistracijaPageObj.registracija.click();
 		stanariRegistracijaPageObj.unosenjeVrednostiStanara("nesto12@nesto.com", "Nesto5", "Slavisa1", "slavkovic");
 		stanariRegistracijaPageObj.Resetujte().click();
 		assertEquals(stanariRegistracijaPageObj.getEmailInputValue(), "");
@@ -86,27 +89,27 @@ public class RegistracijaStanaraTest extends BaseClass{
 		assertEquals(stanariRegistracijaPageObj.getPrezimeInputValue(), "");
 	}
 	
-	@Test
+	@Test(priority = 4)
 	public void registracijaStanaraNegativni2 () {
 		
 		 //unosimo podatke za kreiranje stanara sa losom formom za email
 	    //ocekujemo poruku greske za unos email-a
 		
 		stanariRegistracijaPageObj.regStanara("nesto12", "Nesto5", "Slavisa1", "slavkovic");
-		assertEquals(stanariRegistracijaPageObj.emailErrorMsg().getText(), "Neispravna email adresa!");	
+		assertEquals(stanariRegistracijaPageObj.getEmailErrorMsg(), "Neispravna email adresa!");	
 	}
 	
-	@Test
+	@Test(priority = 5)
 	public void registracijaStanaraNegativni3 () {
 		
 		//unosimo podatke za kreiranje stanara sa losom formom za lozinku
 	    //ocekujemo poruku greske za unos lozinke
 		
 		stanariRegistracijaPageObj.regStanara("nesto12@nesto.com", "a", "Slavisa1", "slavkovic");
-		assertEquals(stanariRegistracijaPageObj.lozinkaErrorMsg().getText(), "Neispravna lozinka!");	
+		assertEquals(stanariRegistracijaPageObj.getLozinkaErrorMsg(), "Neispravna lozinka!");	
 	}
 	
-	@Test
+	@Test(priority = 6)
 	public void registracijaStanaraNegativni4 () {
 		
 		 //podatke za kreiranje stanara ostavljamo praznim

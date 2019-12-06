@@ -10,18 +10,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PregledStanaraPageObj {
 	private WebDriver driver;
-	private WebDriverWait wait;
-	
+
 	public PregledStanaraPageObj(WebDriver driver) {
 		this.driver=driver;
-		wait = new WebDriverWait(driver,5);
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
 	
 	}
 	
@@ -41,43 +40,32 @@ public class PregledStanaraPageObj {
 	
 	private WebElement filterZaPretragu;
 	
-	public WebElement FilterZaPretragu(){
-		
-		
-		return wait.until(ExpectedConditions.visibilityOf(filterZaPretragu));
-	}
+	
 	
 	@FindBy(xpath = "//button[contains(text(),'Pretraga')]")
 	
 	private WebElement pretraga;
 	
-	public WebElement Pretraga(){
-		
-		
-		return wait.until(ExpectedConditions.elementToBeClickable(pretraga));
-	}
+	
 	
 	@FindBy(xpath = "//a[contains(text(),'Gospodin Predsednik')]")
 	
 	private WebElement imeIPrezime;
 	
-	public WebElement ImeIPrezime(){
 	
-		return  wait.until(ExpectedConditions.visibilityOf(imeIPrezime));
-	}
 	
 	@FindBy(xpath = "//h2[contains(text(),'Nijedan stanar sa trazenim kriterijumom nije')]")
 	
 	private WebElement errMessZaNepostojecegStanara;
 	
-	public WebElement ErrMessZaNepostojecegStanara(){
-		return wait.until(ExpectedConditions.visibilityOf(errMessZaNepostojecegStanara));
+	public String ErrMessZaNepostojecegStanara(){
+		return errMessZaNepostojecegStanara.getText();
 	}
 	
 	public void UnosPretrage(String imeIPrezime) {
-		this.FilterZaPretragu().clear();
-		this.FilterZaPretragu().sendKeys(imeIPrezime);
-		this.Pretraga().click();
+		this.filterZaPretragu.clear();
+		this.filterZaPretragu.sendKeys(imeIPrezime);
+		this.pretraga.click();
 	}
 	
 	@FindBy(xpath = "//tr[9]//td[1]//a[1]")
@@ -85,17 +73,17 @@ public class PregledStanaraPageObj {
 	private WebElement ImePrezimeStanar;
 	
 	public WebElement ImePrezimeStanar() {
-		return wait.until(ExpectedConditions.visibilityOf(ImePrezimeStanar));
+		return ImePrezimeStanar;
 	}
 	
-	
+	@FindBy(tagName = "tbody")private WebElement tbody;
 	//metoda za potvrdu da li je stanar/zgrada uneta u bazu
 	public boolean proveraStanara (String Ime,String Prezime,String Email){
 	List<String>provera= new ArrayList<String>();
 		provera.add(Ime+" "+Prezime+" "+ Email);
-
+		System.out.println(provera);
 		List<String> stanari = new ArrayList<String>();
-		WebElement tbody = driver.findElement(By.xpath("//table[@class='table table-hover']//tbody"));
+		
 		List<WebElement> tableRow = tbody.findElements(By.tagName("tr"));
 		
 		int table_rowSize = tableRow.size();
@@ -111,6 +99,7 @@ public class PregledStanaraPageObj {
 				}
 			 } 
 		}
+		System.out.println(stanari);
 		return stanari.containsAll(provera);
 	}	
 }

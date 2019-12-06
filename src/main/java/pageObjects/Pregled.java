@@ -10,18 +10,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Pregled {
 	private WebDriver driver;
-	private WebDriverWait wait;
-	
+
 	public Pregled(WebDriver driver) {
 		this.driver=driver;
-		wait = new WebDriverWait(driver,5);
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
 	
 	}
 	
@@ -42,7 +41,7 @@ public class Pregled {
 	public WebElement UlicaBroj(){
 		
 		
-		return wait.until(ExpectedConditions.visibilityOf(ulicaBroj));
+		return ulicaBroj;
 	}
 	
 	
@@ -53,7 +52,7 @@ public class Pregled {
 	public WebElement Mesto(){
 		
 		
-		return wait.until(ExpectedConditions.visibilityOf(mesto));
+		return mesto;
 	}
 	
 	
@@ -63,7 +62,7 @@ public class Pregled {
 	
 	public WebElement Pretraga(){
 		
-		return wait.until(ExpectedConditions.elementToBeClickable(pretraga));
+		return pretraga;
 	}
 	
 	@FindBy(xpath = "/html[1]/body[1]/app-root[1]/app-zgrade[1]/div[1]/app-izlistaj-zgrade[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/a[1]")
@@ -72,7 +71,7 @@ public class Pregled {
 	
 	public WebElement AdresaZgrade(){
 		
-		return wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(adresaZgrade)));
+		return adresaZgrade;
 }
 	@FindBy(xpath = "//h2[contains(text(),'Nijedna zgrada sa trazenim kriterijumima nije')]")
 	
@@ -80,7 +79,7 @@ public class Pregled {
 	
 	public WebElement ErrMessZaNepostojecuZgradu(){
 		
-		return wait.until(ExpectedConditions.visibilityOf(errMessZaNepostojecuZgradu));
+		return errMessZaNepostojecuZgradu;
 	}
 	
 	public void UnosPretrage(String ulicaBroj, String mesto) {
@@ -91,17 +90,21 @@ public class Pregled {
 		this.Pretraga().click();
 	}
 	
+	@FindBy(tagName = "tr")public List<WebElement>zgradeLinkovi;
+	
 	//ZA STALE  wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(adresaZgrade)));
 	
 	
 	//metoda za potvrdu da li je stanar/zgrada uneta u bazu
 	public boolean proveraZgrade (String ulica,String broj,String mesto){
+		WebDriverWait wait = new WebDriverWait(this.driver, 10);
 	List<String>provera= new ArrayList<String>();
 		provera.add(ulica+" "+broj+","+ " " + mesto);
 	System.out.println(provera);
 	
 		List<String> adrese = new ArrayList<String>();
-		WebElement tbody = driver.findElement(By.xpath("//table[@class='table table-hover']//tbody"));
+		WebElement tbody = driver.findElement(By.tagName("tbody"));
+		wait.until(ExpectedConditions.visibilityOf(tbody));
 		List<WebElement> tableRow = tbody.findElements(By.tagName("tr"));
 		
 		int table_rowSize = tableRow.size();
